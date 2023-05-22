@@ -1,0 +1,26 @@
+<!--Q19. Write a JSON script to define Name,DOB,Age and birthplace of one person.
+Then print his birthdate in console as well as in chrome after clicking
+birthdate button. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Birthdate Example</title>
+  <script>
+    function printBirthdate() {
+      var person = {
+        "Name": "Dwij Patel",
+        "DOB": "17-04-2004",
+        "Age": 19,
+        "Birthplace": "Nadiad"
+      };
+      var birthdate = person.DOB;
+      console.log(birthdate);
+      document.getElementById("birthdateOutput").innerHTML = "Birthdate: " + birthdate;
+    }
+  </script>
+</head>
+<body>
+  <button onclick="printBirthdate()">Show Birthdate</button>
+  <div id="birthdateOutput"></div>
+</body>
+</html>
