@@ -1,0 +1,7 @@
+{
+  "books": [
+    { "id": "1", "topic": "Lust", "edition": "Part-1", "author": "JK Rowling" },
+    { "id": "2", "topic": "Love", "edition": "Part-2", "author": "BV Chawda" },
+    { "id": "3", "topic": "Sigma", "edition": "Part-3", "author": "DA Patel" }
+  ]
+}
