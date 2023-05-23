@@ -6,12 +6,8 @@
 // output: ABC : 'Manager')
 function FirstAndLast(array) {
     var result = {};
-
     if (array.length > 0) {
-        var firstElement = array[0];
-        var lastElement = array[array.length - 1];
-
-        result[firstElement] = lastElement;
+        result[array[0]] = array[array.length - 1];
     }
     // Convert the result object to a JSON string
     var jsonResult = JSON.stringify(result);

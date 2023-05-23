@@ -30,7 +30,7 @@ var division1 = {
     }
   ]
 };
-
+console.log(division1.students[3].subjects[1])
 var division2 = {
   "students": [
     {

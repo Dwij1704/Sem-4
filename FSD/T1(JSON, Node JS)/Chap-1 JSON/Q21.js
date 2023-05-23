@@ -13,7 +13,6 @@ var people = [
 // });
 // console.log("Name: " + tallestPerson.name);
 // console.log("Height: " + tallestPerson.height);
-
 // Without Reduce():-
 var tallestPerson = null;
 var tallestHeight = 0;

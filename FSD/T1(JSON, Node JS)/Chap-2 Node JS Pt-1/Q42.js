@@ -1,11 +1,18 @@
 // Q42. Write a Node.js program to CRUD operation of file management.
 // 1)Create folder named "Hello".
 // 2) Create file in it named abc.txt and enter data in to it.
-//  3) Add more data at last in file.
+// 3) Add more data at last in file.
 // 4)Read data without getting buffer data at first.
 // 5)rename file
 // 6)Delete both file and folder
-const fs = require('fs');
+// const fs = require('fs');
+// fs.mkdir('hello')
+// fs.writeFileSync('hello/abc.txt','initial')
+// fs.appendFileSync('hello/abc.txt', 'initial2')
+// fs.readFileSync('hello/abc.txt', 'utf-8')
+// fs.rename('hello/abc.txt', 'hello/def.txt')
+// fs.unlinkSync('hello/def.txt')
+// fs.rmdirSync('hello')
 fs.mkdir('Hello', (err) => {
   if (err) throw err;
   console.log('Folder created successfully.');
