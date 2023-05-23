@@ -15,7 +15,6 @@ var jsonArray = [
 // For in Loop
 for (var i = 0; i < jsonArray.length; i++) {
   var obj = jsonArray[i];
-
   for (var key in obj) {
     if (Array.isArray(obj[key])) {
       console.log(key + ":");

@@ -16,6 +16,6 @@ var jsonArray = {
     "city": "Ahmedabad"
   }]
 };
-var jsonString = JSON.stringify(jsonArray);
-console.log(jsonString);
+// var jsonString = JSON.stringify(jsonArray);
+console.log(jsonArray);
 //  JSON.stringify() function is used to convert the JSON array to a string before displaying it in the console.
