@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "name": "chap-4-express-js",
+  "version": "1.0.0",
+  "description": "This is My First Express JS File",
+  "main": "Example 1 (Basics).js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jodd Himself",
+  "license": "ISC"
+}
