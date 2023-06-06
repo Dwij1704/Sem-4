@@ -19,8 +19,9 @@ while True:
         # data=client_sk.recv(1024).decode ->Converts recieved data from byte to readable
         if not data:
             break
+        if data
         #Sending data to client
-        client_sk.send(data)
+        client_sk.send(b"Mera Naam Anil hai")
         #Closing connection with client
         client_sk.close()
         print("Client disconnected")
