@@ -1,0 +1,22 @@
+TCP-> Connection
+UDP-> Connection-less
+
+#The Request Response Cycle:
+
+->Person-1 (Client):
+>Write a letter
+>Specific P2 Address
+>Drop letter in Mailbox
+>Letter delivered through Postal System to Person-2
+(Socket)-------------------------------------------(Socket)
+->Person-2 (Server):
+>Read you letter and write a Response
+>Specific Person-1 Address
+>Drop letter in Mailbox
+>Letter delivered through Postal System to Person-1
+
+https://data.dwij.org/page.html
+https-> Protocol
+data.dwij.org-> Host
+page.html-> Document
+# Port must be used above 1024.

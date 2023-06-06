@@ -1,2 +1,0 @@
-TCP-> Connection
-UDP-> Connection-less
