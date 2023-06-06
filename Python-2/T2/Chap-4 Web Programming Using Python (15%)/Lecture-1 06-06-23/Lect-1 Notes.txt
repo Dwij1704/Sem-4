@@ -20,3 +20,4 @@ https-> Protocol
 data.dwij.org-> Host
 page.html-> Document
 # Port must be used above 1024.
+# Refer State diagram.png for State diagram of TCP Server and Client
