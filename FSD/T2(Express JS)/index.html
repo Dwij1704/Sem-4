@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Centered Bootstrap Card with Buttons</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      background-image: url('space.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 400px;
+      overflow-y: auto;
+    padding-top: 50px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 20px;
+    margin-top: 100px;
+    }
+
+    .button-container .btn {
+      margin-bottom: 10px;
+      width: 150px;
+      height: 40px;
+      font-size: 18px;
+      border-radius: 20px;
+    }
+
+    .button-container .heading {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .card::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .card::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+    }
+
+    .card:hover::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="button-container">
+            <h2 class="heading">Example 1</h2>
+            <a class="btn btn-primary" href="#" onclick="redirect('example1/HomePage')">Home Page</a>
+            <a class="btn btn-primary" href="#" onclick="redirect('example1/StudentPage')">Student Page</a>
+            <a class="btn btn-primary" href="#" onclick="redirect('example1/AboutUs')">About Us</a>
+            <h2 class="heading">Example 2</h2>
+            <a class="btn btn-primary" href="#" onclick="redirect('example2/sortByAge')">Sort Age</a>
+            <a class="btn btn-primary" href="#" onclick="redirect('example2/sortByName')">Sort Name</a>
+            <h2 class="heading">Example 3</h2>
+            <a class="btn btn-primary" href="#" onclick="redirect('example3/index')">Index</a>
+            <a class="btn btn-primary" href="#" onclick="redirect('example3/login')">Login</a>
+            <!-- Add more buttons here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function redirect(buttonName) {
+      var newUrl = window.location.href.replace("#","")+buttonName;
+      window.location.href = newUrl;
+    }
+  </script>
+</body>
+
+</html>

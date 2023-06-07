@@ -1,0 +1,13 @@
+.table-div{
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    padding: 15%;
+}
+.table{
+    background-color: azure;
+}
+.table .heading{
+    background-color: rgba(255, 0, 0, 0.547);
+    font-weight: bold;
+}

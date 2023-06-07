@@ -3,3 +3,7 @@ Features Of Express JS:
 - Building a Dynamic Website.
 - Creating Full Stack Web-App.
 - Express JS is more Faster than Node JS and less Complexity.
+> To open static files i.e images, css, html express.static(foldername) is used.
+  This work as bulit-in middleware funcion.
+> app.use(express.static(foldername)) : this function opens the correspnding resources
+  and use it

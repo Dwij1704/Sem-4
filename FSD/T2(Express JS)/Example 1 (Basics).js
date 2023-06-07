@@ -1,12 +1,22 @@
 const express = require('express')
+const path = require('path');
 const fs = require('fs');
+const { log } = require('console');
 const app = express()
 const port = 8080
 // app.get("pathname/pagename",callback)
-app.get('/', (req, res) => res.send('Hello World!'))
+app.use(express.static(path.join(__dirname)))
+app.get('/', (req, res) => res.sendFile(path.join(__dirname,"index.html")))
 // app.listen(port,callback)
 // res.set("Content-Type", "text/html");
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+//
+//
+//
+// Lecture-1
+//
+//
+// 
 app.get('/example1/HomePage', (req, res) => {
     res.set("Content-Type", "text/html");
     fs.readFile("Example-1HomePage.html", (err, data) => {
@@ -41,4 +51,34 @@ app.get('/example2/sortByName', (req, res) => {
     const sortByName = users.sort((a, b) => { return a.name.localeCompare(b.name) });
     res.set("Content-Type", "text/html");
         res.send(sortByName);
+});
+//
+//
+//
+// Lecture-2
+//
+//
+// 
+app.use(express.static("Example 3 Source"))
+app.get('/example3/index', (req, res) => {
+    res.set("Content-Type", "text/html");
+    res.sendFile(path.join(__dirname, 'Example 3 Source', 'index.html'), (err) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            res.sendFile(path.join(__dirname, 'Example 3 Source', 'index.css'), (err) => {
+                console.log(err)
+            });
+        }
+    });
+});
+app.get('/example3/login', (req, res) => {
+    res.set("Content-Type", "text/html");
+    res.sendFile(path.join(__dirname, 'Example 3 Source', 'login.html'));
+});
+app.get('/example3/loginCheck', (req, res) => {
+    res.set("Content-Type", "text/html");
+    const login = { user: req.query.username, passwod: req.query.passwod };
+    res.send(login);
 });
