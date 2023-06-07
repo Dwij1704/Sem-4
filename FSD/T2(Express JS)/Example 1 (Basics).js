@@ -73,12 +73,24 @@ app.get('/example3/index', (req, res) => {
         }
     });
 });
-app.get('/example3/login', (req, res) => {
+app.get('/example3/example3login', (req, res) => {
     res.set("Content-Type", "text/html");
     res.sendFile(path.join(__dirname, 'Example 3 Source', 'login.html'));
 });
-app.get('/example3/loginCheck', (req, res) => {
+app.get('/example3/example3loginCheck', (req, res) => {
     res.set("Content-Type", "text/html");
-    const login = { user: req.query.username, passwod: req.query.passwod };
+    const login = { user: req.query.username, password: req.query.password };
     res.send(login);
+});
+app.get('/example3/example3Split', (req, res) => {
+    res.set("Content-Type", "text/html");
+    res.send("<form action=\"example3Splitter\" method=\"get\"><input type=\"text\" name=\"message\" id=\"message\"><input type=\"submit\" value=\"Submit\"></form>");
+});
+app.get('/example3/example3Splitter', (req, res) => {
+    res.set("Content-Type", "text/html");
+    message = req.query.message.split(".");
+    for (i in message) {
+        res.write(message[i]+"<br>")
+    }
+    res.send();
 });

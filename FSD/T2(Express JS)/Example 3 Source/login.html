@@ -24,7 +24,7 @@
 </head>
 <body>
   <div class="container">
-    <form class="login-form" action="loginCheck">
+    <form class="login-form" action="loginCheck" method="get">
       <h3 class="text-center">Login</h3>
       <div class="form-group">
         <label for="username">Username</label>
@@ -32,7 +32,7 @@
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" id="password" placeholder="Enter password">
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
       </div>
       <button type="submit" class="btn btn-primary btn-block">Submit</button>
     </form>
