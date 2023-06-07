@@ -19,11 +19,11 @@ while True:
         # data=client_sk.recv(1024).decode ->Converts recieved data from byte to readable
         if not data:
             pass
-        if data.decode()=="Am i rich?":
-            client_sk.send(b"Yes Ambani ji")
         else:
             #Sending data to client
-            client_sk.send(b"Welcome sir")
+            # client_sk.send(b"Welcome sir")
+            client_sk.send(input('=>').encode())
+            print(data.decode())
         #Closing connection with client
         # print("Client disconnected")
         #Closing connection with server
