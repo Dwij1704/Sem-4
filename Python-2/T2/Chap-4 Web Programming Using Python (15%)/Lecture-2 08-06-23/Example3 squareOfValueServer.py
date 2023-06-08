@@ -4,6 +4,7 @@ host = sk.gethostname()
 port = 8080
 addr = (host, port)
 server_sk = sk.socket()
+# server_sk = sk.socket(type=sk.SOCK_STREAM)
 server_sk.bind(addr)
 server_sk.listen()
 print("Server is listening at port", port)
