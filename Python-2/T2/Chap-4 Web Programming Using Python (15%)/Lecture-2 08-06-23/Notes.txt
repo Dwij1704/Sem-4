@@ -1,2 +1,0 @@
-UDP Server (Connection less)
-- It does not require any connection
