@@ -62,16 +62,7 @@ app.get('/example2/sortByName', (req, res) => {
 app.use(express.static("Example 3 Source"))
 app.get('/example3/index', (req, res) => {
     res.set("Content-Type", "text/html");
-    res.sendFile(path.join(__dirname, 'Example 3 Source', 'index.html'), (err) => {
-        if (err) {
-            console.log(err)
-        }
-        else {
-            res.sendFile(path.join(__dirname, 'Example 3 Source', 'index.css'), (err) => {
-                console.log(err)
-            });
-        }
-    });
+    res.sendFile(path.join(__dirname, 'Example 3 Source', 'index.html'));
 });
 app.get('/example3/example3login', (req, res) => {
     res.set("Content-Type", "text/html");
@@ -93,4 +84,22 @@ app.get('/example3/example3Splitter', (req, res) => {
         res.write(message[i]+"<br>")
     }
     res.send();
+});
+//
+//
+//
+// Lecture-3
+//
+//
+// 
+app.use(express.static("Example 4 Source"))
+app.get('/example4/example4Login', (req, res) => {
+    res.set("Content-Type", "text/html");
+    res.sendFile(path.join(__dirname, 'Example 4 Source', 'login.html'));
+});
+app.get('/example4/example4loginCheck', (req, res) => {
+    res.set("Content-Type", "text/html");
+    username = req.query.username;
+    password = req.query.password;
+    res.send(`<H1>Username is ${username} and password is ${password}`)
 });
