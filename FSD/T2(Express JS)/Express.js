@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path');
 const fs = require('fs');
-const { log } = require('console');
+const bodyParser = require('body-parser');
 const app = express()
 const port = 8080
 // app.get("pathname/pagename",callback)
@@ -102,4 +102,19 @@ app.get('/example4/example4loginCheck', (req, res) => {
     username = req.query.username;
     password = req.query.password;
     res.send(`<H1>Username is ${username} and password is ${password}`)
+});
+app.get('/example4/example4loginCheck', (req, res) => {
+    res.set("Content-Type", "text/html");
+    username = req.query.username;
+    password = req.query.password;
+    res.send(`<H1>Username is ${username} and password is ${password}`)
+});
+app.get('/example4/example4PostLogin', (req, res) => {
+    res.set("Content-Type", "text/html");
+    res.sendFile(path.join(__dirname, 'Example 4 Source', 'postlogin.html'));
+});
+app.use(bodyParser.urlencoded({ extended: false }))
+app.post('/example4/example4loginPostCheck', (req, res) => {
+    res.set("Content-Type", "text/html");
+    res.send(`<H1>Username is ${req.body} and password is ${req.password}`)
 });

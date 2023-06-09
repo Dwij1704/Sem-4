@@ -7,3 +7,6 @@ Features Of Express JS:
   This work as bulit-in middleware funcion.
 > app.use(express.static(foldername)) : this function opens the correspnding resources
   and use it
+> Post Method: app.use(bodyParser.urlencoded({extended:false}))
+> if extended is True you get depricated data and if False you get
+  in form of js library query string.
