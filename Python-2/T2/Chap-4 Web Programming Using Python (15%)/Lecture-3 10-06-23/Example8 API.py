@@ -1,4 +1,4 @@
-import requests
+import requests, json
 
 
 def getCoordinates(apiKey):
@@ -7,6 +7,7 @@ def getCoordinates(apiKey):
     url = "https://api.openweathermap.org/geo/1.0/direct?" + req
     response = requests.get(url)
     cordinates = response.json()
+    print(json.dumps(cordinates, indent=1))
     print(
         "Longitude: ",
         cordinates[0]["lon"],
@@ -17,7 +18,6 @@ def getCoordinates(apiKey):
         "\nCountry: ",
         cordinates[0]["country"],
     )
-    # print(cordinates)
 
 
 getCoordinates("9ef8e21f1c5d7bea97133bd4ad1880dd")
