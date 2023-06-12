@@ -116,7 +116,8 @@ app.get('/example4/example4PostLogin', (req, res) => {
 app.use(bodyParser.urlencoded({ extended: false }))
 app.post('/example4/example4loginPostCheck', (req, res) => {
     res.set("Content-Type", "text/html");
-    res.send(`<H1>Username is ${req.body} and password is ${req.password}`)
+    // console.log(req.body)
+    res.send(`<H1>Username is ${req.body.username} and password is ${req.body.password}`)
 });
 //
 //
@@ -126,5 +127,13 @@ app.post('/example4/example4loginPostCheck', (req, res) => {
 //
 // 
 app.get('/example5/example5middleware', (req, res, next) => {
-    
+    res.write('request received on' + new Date());
+    next()
+})
+app.get('/example5/example5middleware', (req, res, next) => {
+    res.write('Hello');
+    next()
+})
+app.get('/example5/example5middleware', (req, res, next) => {
+    res.send()
 })
