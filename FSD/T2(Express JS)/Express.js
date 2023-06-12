@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
+const cp = require('cookie-parser');
 const app = express()
 const port = 8080
 // app.get("pathname/pagename",callback)
@@ -138,6 +139,17 @@ app.use('/example5/example5middleware', (req, res, next) => {
     res.send()
 })
 app.use('/example5/example5middlewareHTML', (req, res, next) => {
+    res.set("Content-Type", "text/html");
+    res.write('request received on ' + new Date());
+    next();
+}, (req, res, next) => {
+    res.write('<h1><center>Hello</center></h1>');
+    next();
+}, (req, res) => {
+    res.write('<br><h1><center>Hello</center></h1>');
+    res.send()
+})
+app.use('/example6/example6Cookie', (req, res, next) => {
     res.set("Content-Type", "text/html");
     res.write('request received on ' + new Date());
     next();

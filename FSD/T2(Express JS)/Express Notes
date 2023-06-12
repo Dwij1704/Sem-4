@@ -21,3 +21,10 @@ What is Middleware?
 > It can process request object multiple times before the server works for that request.
 > It can be used to add login and authentication funcionality.
 > It improves Client-side rendering performance, it hepls for optimizaiton and better performance.
+
+Cookies:-
+> const cp = require('cookie-parser') -> Module for cookie.
+> res.cookie("name","value","expiry") -> Creates a cookie.{e: new Date(Date.now+10000)}
+> req.cookie -> To send and fetch a cookie, if you want a specific cookie, then we can retrive it
+                by appending the name of cookie.
+> res.clearCookie("cookie-name") -> Deletes a cookie.

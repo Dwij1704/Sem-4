@@ -6,23 +6,19 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname,'Task-3.html'))
 })
 app.use(bodyParser.urlencoded({ extended: false }));
-app.post('/check', (req, res, next) => {
-    console.log('out')
-    res.set('Content-Type', 'text-html');
+app.post('/check', (req, res,next) => {
+    res.set('Content-Type', 'text/html');
     if (req.body.username == 'admin') {
-        console.log('if')
-        next();
+        next(req.body.username);
     }
     else {
-       console.log('else')
         res.send("<center><h1 style='color:red'>Warning⚠️</h1></center>")
     }
-}, (res,req)=>{
-   console.log('next')
-    res.send('Welcome'+req.body.username)    
+}, (res,req,data)=>{
+    res.send('Welcome'+data)    
 })
 app.listen(8080)
