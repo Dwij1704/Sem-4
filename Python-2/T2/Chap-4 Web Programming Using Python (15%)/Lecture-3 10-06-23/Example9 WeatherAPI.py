@@ -29,7 +29,7 @@ def getCoordinates(apiKey):
     url = "https://api.openweathermap.org/data/2.5/weather?" + req
     response = requests.get(url)
     weather = response.json()
-    print(json.dumps(weather, indent=5))
+    # print(json.dumps(weather, indent=5))
     print("\nWeather\n")
     print(
         "Longitude: ",
@@ -46,7 +46,7 @@ def getCoordinates(apiKey):
         weather["main"]["pressure"],
         "\nHumidity: ",
         weather["main"]["humidity"],
-        "\nHumidity: ",
+        "\nWind Speed: ",
         weather["wind"]["speed"],
         "\nVisibility: ",
         weather["visibility"],

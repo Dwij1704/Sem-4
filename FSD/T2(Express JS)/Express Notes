@@ -10,3 +10,15 @@ Features Of Express JS:
 > Post Method: app.use(bodyParser.urlencoded({extended:false}))
 > if extended is True you get depricated data and if False you get
   in form of js library query string.
+
+What is Middleware?
+> Express JS is a routing and middleware framework for handling the different routing in webpage
+  and it works between response and request cycle.
+> It is executed after the server recieves the request and before the controller action sends the
+  response.
+> It has access to the request object, response object and next.
+> It can process the request before the server sends the response.
+> It can process request object multiple times before the server works for that request.
+> It can be used to add login and authentication funcionality.
+> It improves Client-side rendering performance, it hepls for optimizaiton and better performance.
+> 
