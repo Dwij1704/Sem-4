@@ -149,14 +149,12 @@ app.use('/example5/example5middlewareHTML', (req, res, next) => {
     res.write('<br><h1><center>Hello</center></h1>');
     res.send()
 })
-app.use('/example6/example6Cookie', (req, res, next) => {
-    res.set("Content-Type", "text/html");
-    res.write('request received on ' + new Date());
+app.use(cp())
+app.get('/example6/example6Cookie', (req, res, next) => {
+    res.cookie(('username','xyz',{expires:new Date(Date.now()+20000)}))
     next();
 }, (req, res, next) => {
-    res.write('<h1><center>Hello</center></h1>');
+    console.log(req.cookies)
     next();
-}, (req, res) => {
-    res.write('<br><h1><center>Hello</center></h1>');
-    res.send()
+    res.send("Hello")
 })
