@@ -127,12 +127,12 @@ app.post('/example4/example4loginPostCheck', (req, res) => {
 //
 // 
 app.get('/example5/example5middleware', (req, res, next) => {
-    res.write('request received on' + new Date());
-    next()
+    res.write('request received on ' + new Date());
+    next();
 })
 app.get('/example5/example5middleware', (req, res, next) => {
     res.write('Hello');
-    next()
+    next();
 })
 app.get('/example5/example5middleware', (req, res, next) => {
     res.send()
