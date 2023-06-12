@@ -21,4 +21,3 @@ What is Middleware?
 > It can process request object multiple times before the server works for that request.
 > It can be used to add login and authentication funcionality.
 > It improves Client-side rendering performance, it hepls for optimizaiton and better performance.
-> 

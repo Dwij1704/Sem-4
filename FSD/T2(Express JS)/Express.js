@@ -118,3 +118,13 @@ app.post('/example4/example4loginPostCheck', (req, res) => {
     res.set("Content-Type", "text/html");
     res.send(`<H1>Username is ${req.body} and password is ${req.password}`)
 });
+//
+//
+//
+// Lecture-4
+//
+//
+// 
+app.get('/example5/example5middleware', (req, res, next) => {
+    
+})
