@@ -138,13 +138,13 @@ app.use('/example5/example5middleware', (req, res, next) => {
     res.send()
 })
 app.use('/example5/example5middlewareHTML', (req, res, next) => {
+    res.set("Content-Type", "text/html");
     res.write('request received on ' + new Date());
     next();
 }, (req, res, next) => {
-    res.set("Content-Type", "text/html");
     res.write('<h1><center>Hello</center></h1>');
     next();
-}, (req, res, next) => {
+}, (req, res) => {
     res.write('<br><h1><center>Hello</center></h1>');
     res.send()
 })
