@@ -36,7 +36,7 @@ def getPollution(apiKey):
         pollution["list"][0]["main"]["aqi"],
     )
     quality = {1: "Very Bad", 2: "Bad", 3: "Moderate", 4: "Good", 5: "Very Good"}
-    print(quality[pollution["list"][0]["main"]["aqi"]])
+    print("The Quality of air is", quality[pollution["list"][0]["main"]["aqi"]])
 
 
 getPollution("9ef8e21f1c5d7bea97133bd4ad1880dd")
