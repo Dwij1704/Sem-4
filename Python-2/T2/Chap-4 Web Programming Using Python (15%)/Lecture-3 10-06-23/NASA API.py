@@ -1,4 +1,4 @@
-import requests, json
+import requests
 import urllib.request
 from PIL import Image
 
