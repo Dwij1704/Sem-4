@@ -10,14 +10,16 @@ def getPictureOfTheDay(apiKey):
     response = requests.get(url)
     picture = response.json()
     # print(json.dumps(picture, indent=5))
-    print("Title: ", picture["title"], "\nDescription: ", picture["explanation"])
-    urllib.request.urlretrieve(
-        picture["hdurl"],
-        "APOD.png",
-    )
+    if "msg" in picture:
+        print("Error Code: ", picture["code"], "\nMessage: ", picture["msg"])
+    else:
+        print("Title: ", picture["title"], "\nDescription: ", picture["explanation"])
+        urllib.request.urlretrieve(
+            picture["hdurl"],
+            "APOD.png",
+        )
+        img = Image.open("APOD.png")
+        img.show()
 
-    img = Image.open("APOD.png")
-    img.show()
 
-
-getPictureOfTheDay("G3Lby7kMpcFJsg7bmCe5BhVsYk7wRvuciWjr5foX")
+getPictureOfTheDay(input("Enter You API:"))
