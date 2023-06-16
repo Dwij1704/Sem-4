@@ -36,3 +36,8 @@ Session in JS:-
   but they are readable on client side.
 > Session solves this problem, using session we can assign the client an ID and it makes
   all further request using that id only.
+session({
+  reserve: False            #Doesn't save session if not modified
+  saveUninitialized: False  #Dont Create session if something is not stored
+  secret:"key"              #If the Secret key is changed, the session is considered as fresh session and its value will be reset
+})
