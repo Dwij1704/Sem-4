@@ -167,7 +167,7 @@ app.get('/example6/example6Cookie', (req, res, next) => {
 //
 // 
 app.use(sess({
-    reserve: false,            //Doesn't save session if not modified
+    resave: false,            //Doesn't save session if not modified
     saveUninitialized: false,  //Dont Create session if something is not stored
     secret:"key"               //If the Secret key is changed, the session is considered as fresh session and its value will be reset
 }))
