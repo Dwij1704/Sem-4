@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const cp = require('cookie-parser');
+const sess = require('express-session');
 const app = express()
 const port = 8080
 // app.get("pathname/pagename",callback)
@@ -165,3 +166,18 @@ app.get('/example6/example6Cookie', (req, res, next) => {
 //
 //
 // 
+app.use(sess({
+    reserve: false,            //Doesn't save session if not modified
+    saveUninitialized: false,  //Dont Create session if something is not stored
+    secret:"key"               //If the Secret key is changed, the session is considered as fresh session and its value will be reset
+}))
+app.get('/example7/index', (req, res) => {
+    if (req.session.count) {
+        req.session.count++;
+        res.send('You have visited this page '+req.session.count+' times')
+    }
+    else {
+        req.session.count = 1
+        res.send('Welcome 1st Time')
+    }
+})

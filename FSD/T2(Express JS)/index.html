@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Centered Bootstrap Card with Buttons</title>
+  <title>Example For Express JS</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <style>
@@ -20,7 +20,7 @@
       justify-content: center;
       height: 400px;
       overflow-y: auto;
-    padding-top: 50px;
+      padding-top: 50px;
     }
 
     .button-container {
@@ -29,7 +29,7 @@
       align-items: center;
       justify-content: center;
       margin: 20px;
-      margin-top: 160%;
+      margin-top: 180%;
     }
 
     .button-container .btn {
@@ -83,10 +83,12 @@
             <a class="btn btn-primary" href="#" onclick="redirect('example4/example4PostLogin')">Login Post</a>
             <h2 class="heading">Example 5</h2>
             <a class="btn btn-primary" href="#" onclick="redirect('example5/example5middleware')">Middleware</a>
-            <a class="btn btn-primary" href="#" onclick="redirect('example5/example5middlewareHTML')">HTML Middleware</a>
+            <a class="btn btn-primary" href="#" onclick="redirect('example5/example5middlewareHTML')">HTML
+              Middleware</a>
             <h2 class="heading">Example 6</h2>
             <a class="btn btn-primary" href="#" onclick="redirect('example6/example6Cookie')">Cookie</a>
-            <!-- <a class="btn btn-primary" href="#" onclick="redirect('example5/example5middlewareHTML')">HTML Middleware</a> -->
+            <h2 class="heading">Example 7</h2>
+            <a class="btn btn-primary" href="#" onclick="redirect('example7/index')">Session</a>
             <!-- Add more buttons here -->
           </div>
         </div>
@@ -96,7 +98,7 @@
 
   <script>
     function redirect(buttonName) {
-      var newUrl = window.location.href.replace("#","")+buttonName;
+      var newUrl = window.location.href.replace("#", "") + buttonName;
       window.location.href = newUrl;
     }
   </script>
