@@ -8,7 +8,6 @@
 // will be display under the message.
 const express = require('express');
 const app=express()
-const path = require('path');
 const sess = require('express-session');
 app.get('/home', (req, res) => {
     res.set({'content-type':'text/html'})
@@ -24,7 +23,6 @@ app.get('/process', (req,res)=> {
     req.session.subs = req.query.subs
     if(req.session.subs){
         res.send(`<center><h1>Welcome ${req.session.user}, Thank You for subscription</h1><br><form action="logout" method="get"><input type="submit" value="Logout"></form></center>`)
-        // res.send(`<center><h1>Welcome ${req.session.user}</h1><br><form action="logout" method="get"><input type="submit" value="Logout"></form></center>`)
     }
     else {
         res.send(`<center><h1>Welcome ${req.session.user}, Please Subscribe</h1><br><form action="home" method="get"><input type="submit" value="Subscribe"></form></center>`)
