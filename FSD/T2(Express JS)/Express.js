@@ -158,3 +158,10 @@ app.get('/example6/example6Cookie', (req, res, next) => {
     next();
     res.send("Hello")
 })
+//
+//
+//
+// Lecture-5
+//
+//
+// 
