@@ -28,3 +28,11 @@ Cookies:-
 > req.cookie -> To send and fetch a cookie, if you want a specific cookie, then we can retrive it
                 by appending the name of cookie.
 > res.clearCookie("cookie-name") -> Deletes a cookie.
+
+Session in JS:-
+> Since http is a stateless protocol, to assosciate a request to any other request, you need
+  a way to store user data, between http request.
+> Cookies and url parameters are suitable way to transport data between client and server
+  but they are readable on client side.
+> Session solves this problem, using session we can assign the client an ID and it makes
+  all further request using that id only.
