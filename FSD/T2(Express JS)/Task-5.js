@@ -23,7 +23,7 @@ app.get('/process', (req,res)=> {
     req.session.email = req.query.email
     req.session.subs = req.query.subs
     if(req.session.subs){
-        res.send(`<center><h1>Welcome ${req.session.user}, Your email is ${req.session.email}, Thank You for subscription</h1><br><form action="logout" method="get"><input type="submit" value="Logout"></form></center>`)
+        res.send(`<center><h1>Welcome ${req.session.user}, Your email is ${req.session.email}, Thank You for subscription</h1><br><a href="/home"><button>Logout</button></a></center>`)
     }
     else {
         res.send(`<center><h1>Welcome ${req.session.user},Your email is ${req.session.email}, Please Subscribe</h1><br><form action="home" method="get"><input type="submit" value="Subscribe"></form></center>`)
