@@ -1,0 +1,43 @@
+It is like an additional module of Node JS.
+Features Of Express JS:
+- Building a Dynamic Website.
+- Creating Full Stack Web-App.
+- Express JS is more Faster than Node JS and less Complexity.
+> To open static files i.e images, css, html express.static(foldername) is used.
+  This work as bulit-in middleware funcion.
+> app.use(express.static(foldername)) : this function opens the correspnding resources
+  and use it
+> Post Method: app.use(bodyParser.urlencoded({extended:false}))
+> if extended is True you get depricated data and if False you get
+  in form of js library query string.
+
+What is Middleware?
+> Express JS is a routing and middleware framework for handling the different routing in webpage
+  and it works between response and request cycle.
+> It is executed after the server recieves the request and before the controller action sends the
+  response.
+> It has access to the request object, response object and next.
+> It can process the request before the server sends the response.
+> It can process request object multiple times before the server works for that request.
+> It can be used to add login and authentication funcionality.
+> It improves Client-side rendering performance, it hepls for optimizaiton and better performance.
+
+Cookies:-
+> const cp = require('cookie-parser') -> Module for cookie.
+> res.cookie("name","value","expiry") -> Creates a cookie.{e: new Date(Date.now+10000)}
+> req.cookie -> To send and fetch a cookie, if you want a specific cookie, then we can retrive it
+                by appending the name of cookie.
+> res.clearCookie("cookie-name") -> Deletes a cookie.
+
+Session in JS:-
+> Since http is a stateless protocol, to assosciate a request to any other request, you need
+  a way to store user data, between http request.
+> Cookies and url parameters are suitable way to transport data between client and server
+  but they are readable on client side.
+> Session solves this problem, using session we can assign the client an ID and it makes
+  all further request using that id only.
+session({
+  reserve: False            #Doesn't save session if not modified
+  saveUninitialized: False  #Dont Create session if something is not stored
+  secret:"key"              #If the Secret key is changed, the session is considered as fresh session and its value will be reset
+})
