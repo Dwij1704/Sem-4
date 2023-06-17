@@ -9,14 +9,24 @@
 // Display confirmation message to the user afer succesfully submitting the form and create a link
 // to display the feedback details, stored in cookie. also include a link for logout
 const express = require('express');
-const cp = require('cookie-parser');
-const sess = require('express-session');
-const app = express()
-app.use('/', express.static(__dirname, { index: 'Task-6.html' }))
-app.use(cp())
+const cookieParser = require('cookie-parser');
+const app = express();
+
+app.use(express.static(__dirname, { index: 'Task-6.html' }));
+app.use(cookieParser());
+
 app.get('/process', (req, res) => {
-    data={'name':req.query.name,'email':req.query.email,'message':req.query.message,'rating':req.query.feedback}
-    res.cookie((data, { maxAge: 10000 }))
-    console.log(req.cookies())
-})
-app.listen(8080)
+  const data = {
+    name: req.query.name,
+    email: req.query.email,
+    message: req.query.message,
+    rating: req.query.rating
+  };
+
+  res.cookie('feedback', data, { maxAge: 10000 });
+  console.log(req.cookies.feedback);
+
+  res.send('Form submitted successfully!');
+});
+
+app.listen(8080);
