@@ -24,14 +24,12 @@ app.get('/process', (req, res) => {
   };
 
   res.cookie('feedback', data, { maxAge: 10000 });
-    console.log(req.cookies.feedback);
-    console.log(data)
 
   res.send('<center><h1>Thank You For Feedback</h1><br><a href="feedbackView"><button>View Feedback</button></a><br><a href="/"><button>Logout</button></a><br></center>');
 });
 app.use('/feedbackView', (req, res) => {
     if (req.cookies.feedback) {
-        res.send('<center><h1>'+req.cookies.feedback+'</h1><br></center>')
+        res.send('<center><h1>Name: '+req.cookies.feedback.name+'<br>Email: '+req.cookies.feedback.email+'<br>Message: '+req.cookies.feedback.message+'<br>Ratings: '+req.cookies.feedback.rating+'<br></h1><br><a href="/"><button>Logout</button></a><br></center>')
     }
     else {
         res.send('<center><h1>Cookie Expired</h1><br></center>')
