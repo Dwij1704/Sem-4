@@ -20,13 +20,21 @@ app.get('/process', (req, res) => {
     name: req.query.name,
     email: req.query.email,
     message: req.query.message,
-    rating: req.query.rating
+    rating: req.query.feedback
   };
 
   res.cookie('feedback', data, { maxAge: 10000 });
-  console.log(req.cookies.feedback);
+    console.log(req.cookies.feedback);
+    console.log(data)
 
-  res.send('Form submitted successfully!');
+  res.send('<center><h1>Thank You For Feedback</h1><br><a href="feedbackView"><button>View Feedback</button></a><br><a href="/"><button>Logout</button></a><br></center>');
 });
-
+app.use('/feedbackView', (req, res) => {
+    if (req.cookies.feedback) {
+        res.send('<center><h1>'+req.cookies.feedback+'</h1><br></center>')
+    }
+    else {
+        res.send('<center><h1>Cookie Expired</h1><br></center>')
+    }
+})
 app.listen(8080);
