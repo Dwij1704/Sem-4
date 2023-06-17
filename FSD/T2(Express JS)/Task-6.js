@@ -10,4 +10,13 @@
 // to display the feedback details, stored in cookie. also include a link for logout
 const express = require('express');
 const cp = require('cookie-parser');
-const app= 
+const sess = require('express-session');
+const app = express()
+app.use('/', express.static(__dirname, { index: 'Task-6.html' }))
+app.use(cp())
+app.get('/process', (req, res) => {
+    data={'name':req.query.name,'email':req.query.email,'message':req.query.message,'rating':req.query.feedback}
+    res.cookie((data, { expires: 10 }))
+    console.log(req.cookies)
+})
+app.listen(8080)
