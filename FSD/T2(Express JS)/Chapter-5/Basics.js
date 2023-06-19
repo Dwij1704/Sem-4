@@ -1,3 +1,4 @@
+const { json } = require('body-parser');
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
@@ -10,10 +11,13 @@ var storageForImage = multer.diskStorage({
     }
 })
 var upload = multer({storage : storageForImage})
-app.post('/example1Process', upload.single('myfile'), (req, res) => {
-    const file=req.file
-    if (file) {
-        res.send('file '+file.originalname+' has been uploaded to '+file.destination)
+app.post('/example1Process', upload.array('myfile',5), (req, res) => {
+    const files=req.files
+    if (files) {
+        for (i of files) {            
+            res.write('file '+JSON.stringify(i.originalname)+' has been uploaded to '+JSON.stringify(i.destination)+'\n')
+        }
     }
+    res.send()
 })
 app.listen(8080)
