@@ -1,3 +1,5 @@
+>>Chapter-4
+
 It is like an additional module of Node JS.
 Features Of Express JS:
 - Building a Dynamic Website.
@@ -41,3 +43,17 @@ session({
   saveUninitialized: False  #Dont Create session if something is not stored
   secret:"key"              #If the Secret key is changed, the session is considered as fresh session and its value will be reset
 })
+
+
+>>Chapter-5
+
+Multer:-
+> Multer accepts an option Object, the most basic of which is the storage property which tells Multer
+  where to upload the files.
+> In case you emmit the option object, the files will be kept in memory and never return to the
+  list.
+> Storage -> Where to store a file.
+> File filter -> funcion to control which files are accepted. 
+> limits -> Limits of uploaded data.
+> Preserve Path -> Keep the full file path of the files instead of just basename.
+> fieldname='single' -> This accepts a single file with the name field name
