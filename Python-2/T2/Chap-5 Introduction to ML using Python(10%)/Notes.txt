@@ -5,8 +5,8 @@
 
 Regression:-
 > Good Corellation means the original value is close to Prediction value
-> Single -> y=mx+c
-> Multiple -> y=m1x1+m2x2+m3x3+c
+> Single -> y=mx+c, here m is coefficient and c is intersect.
+> Multiple -> y=m1x1+m2x2+m3x3+c, here n(m) are coefficient as well as distinct and c is intersect that is static.
 > Example for multiple: Predictiono  of price of a car, the parameters that affects are Model Year, Fuel Type, Kms, Condition, No. of Owners.
 > Example for Single: Package after graduation can be Predicted upon the CGPA aquired.
 
