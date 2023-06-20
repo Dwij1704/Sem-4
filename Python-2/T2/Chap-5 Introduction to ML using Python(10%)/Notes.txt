@@ -2,3 +2,20 @@
 -Regression
 -Prediction
 -Error
+
+Regression:-
+> Good Corellation means the original value is close to Prediction value
+> Single -> y=mx+c
+> Multiple -> y=m1x1+m2x2+m3x3+c
+> Example for multiple: Predictiono  of price of a car, the parameters that affects are Model Year, Fuel Type, Kms, Condition, No. of Owners.
+> Example for Single: Package after graduation can be Predicted upon the CGPA aquired.
+
+
+• Machine Learning:
+    - Use of statistical techniques to give computer system to learn with data w/o explicit programs is called Machine Learning
+    - Act of programming computer so that they can learn from data.
+→ Types Of ML:-
+1. Supervised Learning
+2. Unsupervised Learning
+3. Semi-Supervised Learning
+4. Reinforcement Learning 

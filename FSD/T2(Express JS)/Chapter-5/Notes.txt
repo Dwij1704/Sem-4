@@ -10,3 +10,8 @@ Multer:-
 > limits -> Limits of uploaded data.
 > Preserve Path -> Keep the full file path of the files instead of just basename.
 > fieldname='single' -> This accepts a single file with the name field name
+
+Pug:-
+> Pug is a javascript library that was previously known as JADE. It is an easy to code template
+  engine used to code html in a more readable fashion.
+> Pug is case sensitive and indentation as well as whitespace
