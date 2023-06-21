@@ -3,8 +3,29 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="basicPugStyle.css")
         title Basic Pug
-    body 
-        style #jodd{color:red;text-align:center} 
+    body  
         h1#jodd Hello World!
-        
+        table(border="1")
+            tr 
+                td ID
+                td Name
+                td Roll No.
+            tr 
+                td 101
+                td Dwij Patel
+                td 155
+            tr 
+                td 102
+                td Jyoti Mistry
+                td 114
+        br
+        form
+            label(for="username") Username 
+            input(type="text", name="username")
+            br
+            label(for="password") password 
+            input(type="password",name="password")
+        -var list=["xyz","abc","pqr"]
+        h2=list[0]
