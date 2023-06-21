@@ -15,3 +15,9 @@ Pug:-
 > Pug is a javascript library that was previously known as JADE. It is an easy to code template
   engine used to code html in a more readable fashion.
 > Pug is case sensitive and indentation as well as whitespace
+
+RESTful API:-
+> REST (Represntational State Transfer) is an architecture style for creating website using http protocol.
+> RESTful API is a type of API that follows the REST architecture style.
+> Represntational State Transfer means the Transfer of state of representational of the resource.
+> Most popular format for representation is JSON because it can be read by both human and machine. 

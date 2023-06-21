@@ -21,9 +21,4 @@ app.post('/example1Process', upload.array('myfile',5), (req, res) => {
     }
     res.send()
 })
-app.set('view engine', 'pug')
-app.use('/basicPugStyle.css', express.static(path.join(__dirname, 'basicPugStyle.css')));
-app.use('/basicPug', (req, res) => {
-    res.render((path.join(__dirname,'Basics.pug')))
-})
 app.listen(8080)
