@@ -1,33 +1,36 @@
-// Write an Express JS script to only allow pdf files to be uploaded using multer middleware.
-// and saves the file to a specific directory or folder called 'specific', if other than
-// pdf file is uploaded then give an error message.
-const bodyParser = require('body-parser');
+const bp = require('body-parser');
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-var app = express()
-var pathForImage = path.join(__dirname,'Task-1/specific')
-var storageForImages = multer.diskStorage({
-    destination: pathForImage,
+const app = express()
+app.use(express.static(path.join(__dirname, 'Task-1'), { index: 'Task-1.html' }))
+var storageForImage = multer.diskStorage({
+    destination: path.join(__dirname,"Task-1/specific") ,
     filename: function (req, file, cb) {
-        cb(null, file.originalname)
+        if (file.mimetype == 'application/pdf') {
+            cb(null, file.originalname)
+        }
+        else {
+            cb(new Error('File type is not supported'))
+        }
     }
 })
-app.use(express.static(path.join(__dirname, 'Task-1'), { index: 'Task-1.html' }))
-var upload = multer({ storage: storageForImages })
-app.use(bodyParser.urlencoded({extended:false}))
-app.post('/task1Process', (req, res, next) => {
-    // if (f)
-    // var file = req.body
-    console.log(req.body)
+var upload = multer({storage : storageForImage})
+app.post('/task1Process', upload.array('myfile', 5),
+function (err, req, res, next) {
+    if (err) {
+        res.status(400).send(err.message)
+    } else {
+        next()
+    }
+    },
+    (req, res) => {
+    const files=req.files
+    if (files) {
+        for (i of files) {            
+            res.write('file '+JSON.stringify(i.originalname)+' has been uploaded to '+JSON.stringify(i.destination)+'\n')
+        }
+    }
+    res.send()
 })
-// app.post('/task1Process', upload.single('myfile'), (req, res) => {
-//     var file = req.body
-//     if (file) {
-//         // file.mimetype
-//         // var filepath = file.path.split("\\")[(file.path.split("\\").length)-1]
-//         // console.log(path.join(__dirname,'Task-1/specific//'+filepath))
-//         // res.send('Uploaded <img src="' + filepath + '">')
-//     }
-// })
 app.listen(8080)
