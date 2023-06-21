@@ -1,4 +1,4 @@
-const { json } = require('body-parser');
+const bp = require('body-parser');
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
@@ -19,5 +19,9 @@ app.post('/example1Process', upload.array('myfile',5), (req, res) => {
         }
     }
     res.send()
+})
+app.set('view engine','pug')
+app.use('/basicPug', (req, res) => {
+    res.render((path.join(__dirname,'Basics.pug')))
 })
 app.listen(8080)
