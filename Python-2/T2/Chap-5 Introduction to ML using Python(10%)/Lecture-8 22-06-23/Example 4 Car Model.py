@@ -40,3 +40,18 @@ print("MSE", metrics.mean_squared_error(y_test, y_pred))
 print("R2 Score", metrics.r2_score(y_test, y_pred))
 print("Intercept: ", lr.intercept_)
 print("Co-Efficient: ", lr.coef_)
+samplePredict = lr.predict(
+    [
+        [
+            10000,
+            19.6,
+            False,
+            True,
+            True,
+            False,
+            13,
+            0,
+        ]
+    ]
+)
+print(samplePredict)
