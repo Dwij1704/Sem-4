@@ -5,24 +5,13 @@ var trans = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        user: 'dwijpatel1704@gmail.com',
-        pass:'rtuxzdtgtnuzdsrs'
+        user: '', //Enter Your Mail here
+        pass:'' //Enter Your key here
     }
 })
-// drashtimala09@gmail.com,
-// 14shubhamjain12@gmail.com,
-// aryaninvestment@gmail.com,
-// ashviraval0104@gmail.com,
-// dwijpatel1704@gmail.com,
-// singhamankumar207@gmail.com,
-// khushi.nandwal2612@gmail.com,
-// maisuriyakhushi470@gmail.com,
-// jaysolanki1208@gmail.com
-// 15jeel6201patel@gmail.com
-// rbrijesh306@gmail.com
 var mail = {
-    from: 'dwijpatel1704@gmail.com',
-    to: ['jyotimistry210@gmail.com','14shubhamjain12@gmail.com','jaysolanki1208@gmail.com','rbrijesh306@gmail.com','maisuriyakhushi470@gmail.com','ashviraval0104@gmail.com','drashtimala09@gmail.com','15jeel6201patel@gmail.com'],
+    from: '', //Enter Your Mail
+    to: [''], //Enter Their Mail or Mails
     subject: 'Dont be sad bro because reverse of sad is das, and das not good😶',
     attachments: [
         {  
