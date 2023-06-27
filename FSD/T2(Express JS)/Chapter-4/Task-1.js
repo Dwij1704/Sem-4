@@ -2,9 +2,7 @@ const express = require('express');
 app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname,'Task-1.html'))
-})
+app.use(express.static(path.join(__dirname),{index:'Task-1.html'}))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.post('/process', (req, res) => {
     data = req.body;

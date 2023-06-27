@@ -4,11 +4,11 @@ const multer = require('multer');
 const path = require('path');
 const app = express()
 app.use(express.static(path.join(__dirname, 'Example 1'), { index: 'Example-1 Multer.html' }))
-// Setting Up Multer
+// Setting Up                                                                                                                                                      
 var storageForImage = multer.diskStorage({
-    destination: path.join(__dirname,"Example 1/single") ,
+    destination: 'single' ,
     filename: function (req, file, cb) {
-        cb(null,file.originalname)
+        cb(null,'jyoti'+file.originalname)
     }
 })
 var upload = multer({storage : storageForImage})
@@ -20,5 +20,6 @@ app.post('/example1Process', upload.array('myfile',5), (req, res) => {
         }
     }
     res.send()
+    console.log(files)
 })
 app.listen(8080)

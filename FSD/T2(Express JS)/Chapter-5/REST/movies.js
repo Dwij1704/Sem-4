@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+module.exports = router
 const movies = [
     {
         id: 101,
@@ -12,7 +13,6 @@ const movies = [
         year:2014
     }
 ]
-module.exports = router
 router.get('/', (req, res) => {
     res.json(movies)
 })

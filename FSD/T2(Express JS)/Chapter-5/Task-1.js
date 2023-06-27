@@ -17,7 +17,7 @@ var storageForImage = multer.diskStorage({
 })
 var upload = multer({storage : storageForImage})
 app.post('/task1Process', upload.array('myfile', 5),
-function (err, req, res, next) {
+(err, req, res, next)=> {
     if (err) {
         res.status(400).send(err.message)
     } else {

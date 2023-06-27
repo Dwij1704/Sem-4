@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname), { index: 'Task-4.html' }))
 app.use(cp())
 app.get('/task4Process', (req, res) => {
     data = req.query.username
-    res.cookie(('username', data, { expires: new Date(Date.now() + 20000) }))
+    res.cookie('username', data, { expires: new Date(Date.now() + 20000) })
     console.log(req.cookies)
 })
 app.listen(8080)
