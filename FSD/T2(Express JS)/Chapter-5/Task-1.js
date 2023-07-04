@@ -3,6 +3,7 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const app = express()
+app.set('view engine','pug')
 app.use(express.static(path.join(__dirname, 'Task-1'), { index: 'Task-1.html' }))
 var storageForImage = multer.diskStorage({
     destination: path.join(__dirname,"Task-1/specific") ,
@@ -16,7 +17,7 @@ var storageForImage = multer.diskStorage({
     }
 })
 var upload = multer({storage : storageForImage})
-app.post('/task1Process', upload.array('myfile', 5),
+app.post('/task1Process', upload.single('myfile'),
 (err, req, res, next)=> {
     if (err) {
         res.status(400).send(err.message)
@@ -25,12 +26,7 @@ app.post('/task1Process', upload.array('myfile', 5),
     }
     },
     (req, res) => {
-    const files=req.files
-    if (files) {
-        for (i of files) {            
-            res.write('file '+JSON.stringify(i.originalname)+' has been uploaded to '+JSON.stringify(i.destination)+'\n')
-        }
-    }
-    res.send()
+    const files=req.file
+    res.render(path.join(__dirname, 'Task-1/Task-1.pug'),{file:files.originalname})
 })
 app.listen(8080)

@@ -7,8 +7,8 @@ app.get('/',(req,res)=>{
     res.render(path.join(__dirname,'QB_Chap5_23.pug'))
 })
 var storageImage=multer.diskStorage({
-    destination:'specific',
-    filename:function(req,file,cb){
+    destination : path.join(__dirname,"specific"),
+    filename : function(req,file,cb){
         if(file.mimetype=='application/pdf'){
             cb(null,file.originalname)
         }
@@ -18,7 +18,8 @@ var storageImage=multer.diskStorage({
     }
 })
 var upload=multer({storage:storageImage})
-app.post('/process',upload.single('myfile'),(err,req,res,next)=>{
+app.post('/process',upload.single('myfile'),
+(err,req,res,next)=>{
     if(err){
         res.status(400).send(err.message)
     }

@@ -17,11 +17,7 @@ router.get('/', (req, res) => {
     res.json(movies)
 })
 router.get('/:id([0-9]{3,})', (req, res) => {
-    var curMovie = movies.filter((m) => {
-        if (m.id == req.params.id) {
-            return true
-        }
-    })
+    var curMovie = movies.filter(m=>m.id==req.params.id)
         if (curMovie.length == 1) {
             res.json(curMovie[0])
         }
