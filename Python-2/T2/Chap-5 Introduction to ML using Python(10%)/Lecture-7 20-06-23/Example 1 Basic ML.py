@@ -10,8 +10,6 @@ x = df.iloc[:, 0:1]
 y = df.iloc[:, -1]
 print(x)
 print(y)
-# print(type(x)) Dataframe
-# print(type(y)) Series
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=2)
 print(x_train.shape)
 print(x_test.shape)

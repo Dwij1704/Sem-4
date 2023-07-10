@@ -1,6 +1,0 @@
--Socket Programming
--Server-Client
--Web Scrapping
--API Demo
-UDP Server (Connection less)
-- It does not require any connection

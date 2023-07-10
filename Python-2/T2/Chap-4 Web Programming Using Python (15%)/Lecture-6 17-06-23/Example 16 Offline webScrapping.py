@@ -3,7 +3,7 @@ import pandas as pd
 
 soup = BeautifulSoup(
     open(
-        "Web Scrapping\\top250.html",
+        "Python-2\\T2\\Chap-4 Web Programming Using Python (15%)\\Web Scrapping Files\\top250.html",
         "r",
         encoding="utf-8",
     )

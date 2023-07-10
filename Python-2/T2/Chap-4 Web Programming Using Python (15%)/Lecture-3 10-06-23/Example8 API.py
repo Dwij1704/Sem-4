@@ -4,8 +4,8 @@ import requests, json
 def getCoordinates(apiKey):
     city = input("Enter a city: ")
     req = "q=" + city + "&appid=" + apiKey
-    url = "https://api.openweathermap.org/geo/1.0/direct?" + req
-    response = requests.get(url)
+    url = "https://api.openweathermap.org/geo/1.0/direct"
+    response = requests.get(url,params={"appid": apiKey, "q": city})
     cordinates = response.json()
     # print(json.dumps(cordinates, indent=5)) GENERATES Output in JSON format
     print(

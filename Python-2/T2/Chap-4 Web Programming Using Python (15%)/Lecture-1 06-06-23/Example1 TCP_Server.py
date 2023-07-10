@@ -2,7 +2,7 @@ import socket as sk
 
 host = sk.gethostname()
 port = 8080
-addr = (host, port)  # Creating tuple consisting host and port
+addr = ('localhost', port)  # Creating tuple consisting host and port
 # Creating socket
 server_sk = sk.socket()
 # Binding socket to address
