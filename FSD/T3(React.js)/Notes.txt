@@ -1,3 +1,8 @@
+React JS:-
 React JS is a framework which is open source framework and library developed by Facebook.
 It is used for building interactive user interfaces(UI) and Web Applications quickly and efficiently.
 It is used for handling view layer for web and mobile apps.
+
+JSX:-
+JSX is a syntax extension for JS that lets you write HTML in JS.
+It looks like html but it is a bit strict and can display dynamic information.
