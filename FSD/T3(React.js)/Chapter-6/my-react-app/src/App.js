@@ -33,8 +33,7 @@ function MainContent() {
     </>
       );
   }
-
-  return null;
+  return null
 }
 
 function App() {

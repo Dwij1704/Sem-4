@@ -27,8 +27,6 @@ class Game:
             self.game(1)
     def calculate(self):
             if(self.userInp==self.compInp):
-                self.userScore+=1
-                self.compScore+=1
                 self.rounds-=1
                 print("Computer selected",self.compInp)
                 print("Draw")
@@ -66,4 +64,5 @@ class Game:
                 print("Invalid Input")
 my_game = Game()
 # my_game.game(4) for 4 Rounds Game
+# diff=user_comp%5
 my_game.game()
