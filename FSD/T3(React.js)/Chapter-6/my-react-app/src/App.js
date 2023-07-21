@@ -1,8 +1,14 @@
 import "./App.css";
+import img1 from './logo.svg'
+import img2 from './Certificate.png'
+import img3 from './Poster.png'
 import Example2 from './Example 2/Example2';
 import Example3 from './Example3/Example3';
 import Example4 from "./Example4/Example4";
 import Example5 from "./Example5/Example5";
+import ClickEvent from "./Events/ClickEvent";
+import TypeEvent from "./Events/TypeEvent";
+import DoubleClick from './Events/DoubleClick'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 function MainContent() {
@@ -22,6 +28,14 @@ function MainContent() {
             <a className="btn btn-primary" href="lecture2/Example3">Example 3 Task-1</a>
             <a className="btn btn-primary" href="lecture2/Example4">Example 4 Props</a>
             <a className="btn btn-primary" href="lecture2/Example5">Example 5 JSON Prop</a>
+            <h2 className="heading">Lecture 3</h2>
+            <a className="btn btn-primary" href="lecture3/OnClick">OnClick Event</a>
+            <a className="btn btn-primary" href="lecture3/OnChange">Type Event</a>
+            <a className="btn btn-primary" href="lecture3/OnDoubleClick">Double Click Event</a>
+            <a className="btn btn-primary" href="lecture3/Maps">Map Example</a>
+            <a className="btn btn-primary" href="lecture3/Task1">Task 1</a>
+            <a className="btn btn-primary" href="lecture3/Task2">Task 2</a>
+            <a className="btn btn-primary" href="lecture3/Task3">Task 3</a>
           </div>
         </div>
       </div>
@@ -100,6 +114,73 @@ function Lecture2Example5(){
     </>
     )
 }
+function Lecture3OnClick(){
+  // Onclick Event Handler
+  return(
+    <>
+    <ClickEvent/>
+    </>
+  )
+}
+function Lecture3OnChange(){
+  // Onchange Event Handler
+  return(
+    <>
+    <TypeEvent/>
+    </>
+  )
+}
+function Lecture3OnDoubleClick(){
+  // OnDoubleclick Event Handler
+  return(
+    <>
+    <DoubleClick/>
+    </>
+  )
+}
+function Lecture3Maps(){
+  const arr=[1,2,3,4]
+  return(
+    <>
+    {arr.map((values)=>{
+      return <h2>Elements are:{values}</h2>
+    })}
+    </>
+  )
+}
+function Lecture3Task1(){
+  // Task-1 Value To Upper
+  const arr=['dwij','jeel']
+  return(
+    <>
+    {arr.map((values)=>{
+      return(<h2>{values.toUpperCase()}</h2>)
+    })}
+    </>
+  )
+}
+function Lecture3Task2(){
+  // Task-2 We have Array of numbers and multiply each numbers by 5 use map to display
+  const arr=[1,2,3,4,5,6,7,8,9,10]
+  return(
+    <>
+    {arr.map((values)=>{
+      return(<h2> {values}x5 is {values*5}</h2>)
+    })}
+    </>
+  )
+}
+function Lecture3Task3(){
+  // Task-3 Array Of Objects to display image
+  const arr=[{id:1,image:img1},{id:2,image:img2},{id:3,image:img3}]
+  return(
+    <>
+    {arr.map((values)=>{
+      return <img src={values.image} height="300" width="300"></img>
+    })}
+    </>
+  )
+}
 function App() {
   return (
     <BrowserRouter>
@@ -110,8 +191,13 @@ function App() {
         <Route path="/lecture2/Example3" element={<Lecture2Example3 />} />
         <Route path="/lecture2/Example4" element={<Lecture2Example4 />} />
         <Route path="/lecture2/Example5" element={<Lecture2Example5 />} />
-        {/* <Route path="/student" element={<StudentPage />} />
-        <Route path="/about" element={<AboutPage />} /> */}
+        <Route path="/lecture3/OnClick" element={<Lecture3OnClick />} />
+        <Route path="/lecture3/Onchange" element={<Lecture3OnChange />} />
+        <Route path="/lecture3/OnDoubleClick" element={<Lecture3OnDoubleClick />} />
+        <Route path="/lecture3/Maps" element={<Lecture3Maps />} />
+        <Route path="/lecture3/Task1" element={<Lecture3Task1 />} />
+        <Route path="/lecture3/Task2" element={<Lecture3Task2 />} />
+        <Route path="/lecture3/Task3" element={<Lecture3Task3 />} />
       </Routes>
     </BrowserRouter>
   );
