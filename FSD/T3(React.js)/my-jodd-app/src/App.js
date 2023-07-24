@@ -244,7 +244,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainContent />} />
-        <Route path="" element={<MainContent />} />
         <Route path="/lecture1/Example1" element={<Lecture1Example1 />} />
         <Route path="/lecture2/Example2" element={<Lecture2Example2 />} />
         <Route path="/lecture2/Example3" element={<Lecture2Example3 />} />
