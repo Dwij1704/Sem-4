@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>React App</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      background-image: url('space.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 400px;
+      overflow-y: auto;
+      padding-top: 50px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 20px;
+      margin-top: 10%;
+    }
+
+    .button-container .btn {
+      margin-bottom: 10px;
+      width: 150px;
+      height: 40px;
+      font-size: 18px;
+      border-radius: 20px;
+    }
+
+    .button-container .heading {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .card::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .card::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+    }
+
+    .card:hover::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="button-container">
+            <h2 class="heading">Lecture 1</h2>
+            <a class="btn btn-primary" href="lecture1/Example1">Example 1</a>
+            <!-- <a class="btn btn-primary" href="#">Student Page</a>
+            <a class="btn btn-primary" href="#">About Us</a> -->
+            <!-- <h2 class="heading">Example 2</h2>
+            <a class="btn btn-primary" href="#" onclick="redirect('example2/sortByAge')">Sort Age</a>
+            <a class="btn btn-primary" href="#" onclick="redirect('example2/sortByName')">Sort Name</a>
+            <h2 class="heading">Example 3</h2>
+            <a class="btn btn-primary" href="#" onclick="redirect('example3/index')">Index</a>
+            <a class="btn btn-primary" href="#" onclick="redirect('example3/example3login')">Login</a>
+            <a class="btn btn-primary" href="#" onclick="redirect('example3/example3Split')">Splitter</a>
+            <h2 class="heading">Example 4</h2>
+            <a class="btn btn-primary" href="#" onclick="redirect('example4/example4Login')">Login</a>
+            <a class="btn btn-primary" href="#" onclick="redirect('example4/example4PostLogin')">Login Post</a>
+            <h2 class="heading">Example 5</h2>
+            <a class="btn btn-primary" href="#" onclick="redirect('example5/example5middleware')">Middleware</a>
+            <a class="btn btn-primary" href="#" onclick="redirect('example5/example5middlewareHTML')">HTML
+              Middleware</a>
+            <h2 class="heading">Example 6</h2>
+            <a class="btn btn-primary" href="#" onclick="redirect('example6/example6Cookie')">Cookie</a>
+            <h2 class="heading">Example 7</h2>
+            <a class="btn btn-primary" href="#" onclick="redirect('example7/index')">Session</a> -->
+            <!-- Add more buttons here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

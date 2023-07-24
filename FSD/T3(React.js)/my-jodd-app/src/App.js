@@ -51,7 +51,7 @@ function MainContent() {
   </div>
     </>
       );
-  }np,
+  }
 function Lecture1Example1() {
   // Routing Example
   return <div>Routing Example</div>;
