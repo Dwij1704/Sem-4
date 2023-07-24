@@ -8,7 +8,9 @@ import Example4 from "./Example4/Example4";
 import Example5 from "./Example5/Example5";
 import ClickEvent from "./Events/ClickEvent";
 import TypeEvent from "./Events/TypeEvent";
-import DoubleClick from './Events/DoubleClick'
+import DoubleClick from './Events/DoubleClick';
+import Newspaper from './NavBar Files/Newspaper';
+import SpaceManager from './NavBar Files/Space Manager';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // BrowserRouter: It is used to keep your UI in synchrounous with the URL it is the parent
 // component that is used to store all other Router Components.
@@ -44,6 +46,7 @@ function MainContent() {
             <a className="btn btn-primary" href="lecture4/ListAndKeys">List And Keys</a>
             <a className="btn btn-primary" href="lecture4/Filter">Filter</a>
             <a className="btn btn-primary" href="lecture4/Task4">Task-4</a>
+            <a className="btn btn-primary" href="lecture4/NavBar">NavBar</a>
           </div>
         </div>
       </div>
@@ -239,6 +242,32 @@ function Lecture4Task4(){
       </>
     )
   }
+function Lecture4NavBar(){
+  return(
+    <>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+            <div class="container-fluid">
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#demo">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="demo">
+                    <ul class="navbar-nav">  
+                      <li class="nav-item">
+                            <a href="/" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="NavBar/SpaceManager" class="nav-link">Space Manager</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="NavBar/Newspaper" class="nav-link">Newspaper</a>
+                        </li>
+                     </ul>
+                </div>
+        </div>
+    </nav>
+    </>
+  )
+}
 function App() {
   return (
     <BrowserRouter>
@@ -259,6 +288,9 @@ function App() {
         <Route path="/lecture4/ListAndKeys" element={<Lecture4ListKeys />} />
         <Route path="/lecture4/Filter" element={<Lecture4Filter />} />
         <Route path="/lecture4/Task4" element={<Lecture4Task4 />} />
+        <Route path="/lecture4/NavBar" element={<Lecture4NavBar />} />
+        <Route path="/lecture4/NavBar/NewsPaper" element={<Newspaper />} />
+        <Route path="/lecture4/NavBar/SpaceManager" element={<SpaceManager />} />
       </Routes>
     </BrowserRouter>
   );
