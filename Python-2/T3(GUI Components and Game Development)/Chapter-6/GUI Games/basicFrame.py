@@ -5,7 +5,8 @@ t=0
 colors=['Violet','Indigo','Blue','Green','Yellow','Orange','Red']
 cords=[120,400,230,450,102,349,250]
 def draw(joddCanvas):
-    frame.set_canvas_background(colors[t])
+    frame.set_canvas_background(colors[t]) 
+    joddCanvas.draw_point([250,250],'white') # point, color
     joddCanvas.draw_text(colors[t],[cords[t],cords[6-t]],20,colors[6-t],'sans-serif') # text, point, font_size, font_color, font_family
     joddCanvas.draw_line([cords[t]+50,cords[6-t]+50],[cords[6-t]+25,cords[t]+25],5,colors[6-t]) # start_point, end_point, line_width, line_color
     joddCanvas.draw_polyline([[440,10],[480,40],[430,90],[450,150]],5,colors[6-t]) # points, line_width, line_color

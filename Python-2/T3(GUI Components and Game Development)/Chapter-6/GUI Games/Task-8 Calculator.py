@@ -25,9 +25,9 @@ n1=0
 n2=0
 frame.add_input('Enter n1',inputHandlern1,100)
 frame.add_input('Enter n2',inputHandlern2,100)
-frame.add_button('add',add)
-frame.add_button('sub',sub)
-frame.add_button('mul',mul)
-frame.add_button('div',div)
+frame.add_button('add',add,100)
+frame.add_button('sub',sub,100)
+frame.add_button('mul',mul,100)
+frame.add_button('div',div,100)
 frame.set_draw_handler(draw)
 frame.start()
