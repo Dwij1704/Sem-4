@@ -1,7 +1,7 @@
 import "./App.css";
 import img1 from './logo.svg'
-import img2 from './Certificate.png'
-import img3 from './Poster.png'
+import img2 from './Images/Certificate.png'
+import img3 from './Images/Poster.png'
 import Example2 from './Example 2/Example2';
 import Example3 from './Example3/Example3';
 import Example4 from "./Example4/Example4";
@@ -52,6 +52,7 @@ function MainContent() {
             <a className="btn btn-primary" href="lecture5/Hooks">Hooks</a>
             <a className="btn btn-primary" href="lecture5/Task5">Task 5</a>
             <a className="btn btn-primary" href="lecture5/Task6">Task 6</a>
+            <a className="btn btn-primary" href="lecture5/Task7">Task 7</a>
           </div>
         </div>
       </div>
@@ -320,7 +321,7 @@ function Lecture5Task5(){
   )
 }
 function Lecture5Task6(){
-  // Change text and colour
+  // Change text and colour also add a show/hide button
   const [text,setText]=useState('LJ University')
   const [color,setColor]=useState('red')
   const [state,setState]=useState(true)
@@ -332,6 +333,19 @@ function Lecture5Task6(){
     <button onClick={()=>text=='LJ University'?setText('Pols aa gayi pols 🚨'):setText('LJ University')}>Change Text</button>
     <button onClick={()=>color=='red'?setColor('blue'):setColor('red')}>Change Color</button>
     <button onClick={()=>setState(!state)}>{state?'Show':'Hide'}</button>
+    </center>
+    </>
+  )
+}
+function Lecture5Task7(){
+  // Change Images on click
+  const[image,setImage]=useState(img1)
+  return(
+    <>
+    <center>
+      <img style={{height:400+'px',width:400+'px'}} src={image}></img>
+      <br></br>
+      <button onClick={()=>{image==img1?setImage(img2):setImage(img1)}}>Click To Change</button>
     </center>
     </>
   )
@@ -362,6 +376,7 @@ function App() {
         <Route path="/lecture5/Hooks" element={<Lecture5Hooks />} />
         <Route path="/lecture5/Task5" element={<Lecture5Task5 />} />
         <Route path="/lecture5/Task6" element={<Lecture5Task6 />} />
+        <Route path="/lecture5/Task7" element={<Lecture5Task7 />} />
       </Routes>
     </BrowserRouter>
   );
