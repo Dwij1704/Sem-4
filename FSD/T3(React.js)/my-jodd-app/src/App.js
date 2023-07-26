@@ -12,6 +12,7 @@ import DoubleClick from './Events/DoubleClick';
 import Newspaper from './NavBar Files/Newspaper';
 import SpaceManager from './NavBar Files/Space Manager';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
 // BrowserRouter: It is used to keep your UI in synchrounous with the URL it is the parent
 // component that is used to store all other Router Components.
 
@@ -45,8 +46,12 @@ function MainContent() {
             <h2 className="heading">Lecture 4</h2>
             <a className="btn btn-primary" href="lecture4/ListAndKeys">List And Keys</a>
             <a className="btn btn-primary" href="lecture4/Filter">Filter</a>
-            <a className="btn btn-primary" href="lecture4/Task4">Task-4</a>
+            <a className="btn btn-primary" href="lecture4/Task4">Task 4</a>
             <a className="btn btn-primary" href="lecture4/NavBar">NavBar</a>
+            <h2 className="heading">Lecture 5</h2>
+            <a className="btn btn-primary" href="lecture5/Hooks">Hooks</a>
+            <a className="btn btn-primary" href="lecture5/Task5">Task 5</a>
+            <a className="btn btn-primary" href="lecture5/Task6">Task 6</a>
           </div>
         </div>
       </div>
@@ -268,6 +273,69 @@ function Lecture4NavBar(){
     </>
   )
 }
+function Lecture5Hooks(){
+  // Hooks:
+  // 1. Hooks can only be called inside react function components.
+  // 2. Hooks can only be called at the top level of components.
+  // 3. Hooks can not be conditional.
+  // Types of Hooks:
+  //  i. useState 
+  //    - import {useState} from 'react' 
+  //    - const[currentState,function to update state]=useState(initialState)
+  //    - It is a function that returns a stateful value and a function to update it.
+  const [count,setCount]=useState(0)
+  const [name,setName]=useState('Dwij')
+  const [arr,setArr]=useState([1,2,3,4,5])
+  const [obj,setObj]=useState({name:'Dwij',age:19})
+  const [bool,setBool]=useState(true)
+  return(
+    <>
+    <center>
+    <h2>Count is {count}</h2>
+    <button onClick={()=>setCount(count+1)}>Increment</button>
+    <button onClick={()=>setCount(count-1)}>Decrement</button>
+    <h2>Name is {name}</h2>
+    <button onClick={()=>setName('Jeel')}>Change Name</button>
+    <h2>Array is {arr}</h2>
+    <button onClick={()=>setArr([1,2,3,4,5,6,7,8,9,10])}>Change Array</button>
+    <h2>Object is {obj.name} and {obj.age}</h2>
+    <button onClick={()=>setObj({name:'Jeel',age:20})}>Change Object</button>
+    <h2>Boolean is {bool.toString()}</h2>
+    <button onClick={()=>setBool(!bool)}>Change Boolean</button>
+    </center>
+    </>
+  )
+}
+function Lecture5Task5(){
+  // Value should be between 0-10
+  const [count,setCount]=useState(0)
+  return(
+    <>
+    <center>
+    <h2>Count is {count}</h2>
+    <button onClick={()=>count!=10?setCount(count+1):alert("Exceeds 10")}>Increment</button>
+    <button onClick={()=>count!=0?setCount(count-1):alert("Exceeds 0")}>Decrement</button>
+    </center>
+    </>
+  )
+}
+function Lecture5Task6(){
+  // Change text and colour
+  const [text,setText]=useState('LJ University')
+  const [color,setColor]=useState('red')
+  const [state,setState]=useState(true)
+  return(
+    <>
+    <center>
+    <h2 style={{color:color}}>{text}</h2>
+    <h1 style={{display:state?'block':'none'}}>React Hook</h1>
+    <button onClick={()=>text=='LJ University'?setText('Pols aa gayi pols 🚨'):setText('LJ University')}>Change Text</button>
+    <button onClick={()=>color=='red'?setColor('blue'):setColor('red')}>Change Color</button>
+    <button onClick={()=>setState(!state)}>{state?'Show':'Hide'}</button>
+    </center>
+    </>
+  )
+}
 function App() {
   return (
     <BrowserRouter>
@@ -291,6 +359,9 @@ function App() {
         <Route path="/lecture4/NavBar" element={<Lecture4NavBar />} />
         <Route path="/lecture4/NavBar/NewsPaper" element={<Newspaper />} />
         <Route path="/lecture4/NavBar/SpaceManager" element={<SpaceManager />} />
+        <Route path="/lecture5/Hooks" element={<Lecture5Hooks />} />
+        <Route path="/lecture5/Task5" element={<Lecture5Task5 />} />
+        <Route path="/lecture5/Task6" element={<Lecture5Task6 />} />
       </Routes>
     </BrowserRouter>
   );
