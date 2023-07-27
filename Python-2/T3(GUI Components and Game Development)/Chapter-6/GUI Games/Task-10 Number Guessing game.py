@@ -19,10 +19,10 @@ def inputHandler(inp):
             return()
         elif userGuess>compGuess:
             text1="Chance Left: "+str(mode1[2])
-            text2="Too High"
+            text2="Too High, Guess a lower number"
         else:
             text1="Chance Left: "+str(mode1[2])
-            text2="Too Low"
+            text2="Too Low, Guess a higher number"
     elif mode==1 and mode2[2]>0:
         compGuess=random.randrange(mode2[0],mode2[1])
         mode2[2]-=1
@@ -31,14 +31,15 @@ def inputHandler(inp):
             return()
         elif userGuess>compGuess:
             text1="Chance Left: "+str(mode2[2])
-            text2="Too High"
+            text2="Too High, Guess a lower number"
         else:
             text1="Chance Left: "+str(mode2[2])
-            text2="Too Low"
+            text2="Too Low, Guess a higher number"
     else:
         text2="You Loose the number was "+str(compGuess)
 def draw(canvas):
     global userGuess,mode,mode1,text1,text2
+    frame.set_canvas_background('white') 
     canvas.draw_text(text1,[150,100],20,'red','sans-serif') # text, point, font_size, font_color, font_family
     canvas.draw_text(text2,[150,200],20,'blue','sans-serif') # text, point, font_size, font_color, font_family
     
@@ -56,5 +57,5 @@ def setMode2():
 frame.add_input('Enter Your Guess: ',inputHandler,100)
 frame.set_draw_handler(draw)
 frame.add_button("Range 1-100",setMode1)
-frame.add_button("Range 1-100",setMode2)
+frame.add_button("Range 1-1000",setMode2)
 frame.start()
