@@ -36,11 +36,11 @@ def inputHandler(inp):
             text1="Chance Left: "+str(mode2[2])
             text2="Too Low"
     else:
-        text2="You Loose"
+        text2="You Loose the number was "+str(compGuess)
 def draw(canvas):
     global userGuess,mode,mode1,text1,text2
-    canvas.draw_text(text1,[100,100],20,'red','sans-serif') # text, point, font_size, font_color, font_family
-    canvas.draw_text(text2,[100,200],20,'blue','sans-serif') # text, point, font_size, font_color, font_family
+    canvas.draw_text(text1,[150,100],20,'red','sans-serif') # text, point, font_size, font_color, font_family
+    canvas.draw_text(text2,[150,200],20,'blue','sans-serif') # text, point, font_size, font_color, font_family
     
 def setMode1():
     global mode,text1,compGuess
