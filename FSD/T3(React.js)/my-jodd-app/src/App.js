@@ -53,6 +53,7 @@ function MainContent() {
             <a className="btn btn-primary" href="lecture5/Task5">Task 5</a>
             <a className="btn btn-primary" href="lecture5/Task6">Task 6</a>
             <a className="btn btn-primary" href="lecture5/Task7">Task 7</a>
+            <a className="btn btn-primary" href="lecture5/Task8">Task 8</a>
           </div>
         </div>
       </div>
@@ -350,6 +351,18 @@ function Lecture5Task7(){
     </>
   )
 }
+function Lecture5Task8(){
+  // 2 input fields, and display it on browser
+  const[text1,setText1]=useState('')
+  const[text2,setText2]=useState('')
+  return(
+    <>
+    <h1>{text1}{text2}</h1>
+    <input type="text" onChange={(event)=>setText1(event.target.value)}></input>
+    <input type="text" onChange={(event)=>setText2(event.target.value)}></input>
+    </>
+  )
+}
 function App() {
   return (
     <BrowserRouter>
@@ -377,6 +390,7 @@ function App() {
         <Route path="/lecture5/Task5" element={<Lecture5Task5 />} />
         <Route path="/lecture5/Task6" element={<Lecture5Task6 />} />
         <Route path="/lecture5/Task7" element={<Lecture5Task7 />} />
+        <Route path="/lecture5/Task8" element={<Lecture5Task8 />} />
       </Routes>
     </BrowserRouter>
   );
