@@ -13,6 +13,8 @@ import Newspaper from './NavBar Files/Newspaper';
 import SpaceManager from './NavBar Files/Space Manager';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
+import {useReducer} from 'react'
+import {useEffect} from 'react'
 // BrowserRouter: It is used to keep your UI in synchrounous with the URL it is the parent
 // component that is used to store all other Router Components.
 
@@ -54,6 +56,11 @@ function MainContent() {
             <a className="btn btn-primary" href="lecture5/Task6">Task 6</a>
             <a className="btn btn-primary" href="lecture5/Task7">Task 7</a>
             <a className="btn btn-primary" href="lecture5/Task8">Task 8</a>
+            <h2 className="heading">Lecture 5</h2>
+            <a className="btn btn-primary" href="lecture6/Reducer">Reducer</a>
+            <a className="btn btn-primary" href="lecture6/Task9">Task 9</a>
+            <a className="btn btn-primary" href="lecture6/Task10">Task 10</a>
+            <a className="btn btn-primary" href="lecture6/Task11">Use Effect</a>
           </div>
         </div>
       </div>
@@ -358,8 +365,73 @@ function Lecture5Task8(){
   return(
     <>
     <h1>{text1}{text2}</h1>
-    <input type="text" onChange={(event)=>setText1(event.target.value)}></input>
-    <input type="text" onChange={(event)=>setText2(event.target.value)}></input>
+
+    {/* Using onChange */}
+    <input type="text" onChange={(event)=>setText1(event.target.value)} placeholder="Enter First Name"></input>
+    <input type="text" onChange={(event)=>setText2(event.target.value)} placeholder="Enter Last Name"></input>
+
+    {/* Using onClick in Button */}
+    <input type="Button" onClick={()=>{setText1(document.getElementsByTagName('input')[0].value)
+    setText2(document.getElementsByTagName('input')[1].value)}} value="Click me"></input>
+    </>
+  )
+}
+function Lecture6Reducer(){
+  const [state, dispatch] = useReducer((state, action) => {
+    return action.type === 'increment' ? state + 1 : state;
+  }, 0);
+  
+  return(
+    <>
+    <button onClick={()=>dispatch({type:'increment'})}>Click</button>
+    <h1>{state}</h1>
+    </>
+  )
+}
+function Lecture6Task9(){
+  // To increase the value by 5 while click on button start value is 20 use useReduces to perform task
+  const [state, dispatch] = useReducer((state, action) => {
+    return action.type === 'increment' ? state + 5 : state;
+  }, 20);
+  
+  return(
+    <>
+    <button onClick={()=>dispatch({type:'increment'})}>Click</button>
+    <h1>{state}</h1>
+    </>
+  )
+}
+function Lecture6Task10(){
+  // Increment and Decrement
+  const [state, dispatch] = useReducer((state, action) => {
+    return action.type === 'increment' ? state + 2 : action.type=== 'decrement' ? state - 1 : state;
+  }, 0);
+  
+  return(
+    <>
+    <center>
+    <br></br>
+    <button onClick={()=>dispatch({type:'increment'})}>➕</button>
+    <h1>{state}</h1>
+    <button onClick={()=>dispatch({type:'decrement'})}>➖</button>
+    </center>
+    </>
+  )
+}
+function Lecture6Task11(){
+  // Using UseEffect
+  // 1. Add 2 Buttons and increment Count by 1 with each click
+  // 2. Display alert box as an effect on a specific conditon
+  //    - Effect will be triggered only when page is rendered for the first time.
+  //    -    ||    ||   ||    ||   when button is clicked
+  const [count,setCount]=useState(0)
+  const [calculation,setCalculation]=useState(0)
+  useEffect(()=>{alert("Clicked")} ,[])
+  return(
+    <>
+    <button onClick={()=>{setCount(count+1)}}>Count {count}</button>
+    <br></br>
+    <button onClick={()=>{setCalculation(calculation+1)}}>Calculate {calculation}</button>
     </>
   )
 }
@@ -391,6 +463,10 @@ function App() {
         <Route path="/lecture5/Task6" element={<Lecture5Task6 />} />
         <Route path="/lecture5/Task7" element={<Lecture5Task7 />} />
         <Route path="/lecture5/Task8" element={<Lecture5Task8 />} />
+        <Route path="/lecture6/Reducer" element={<Lecture6Reducer />} />
+        <Route path="/lecture6/Task9" element={<Lecture6Task9 />} />
+        <Route path="/lecture6/Task10" element={<Lecture6Task10 />} />
+        <Route path="/lecture6/Task11" element={<Lecture6Task11 />} />
       </Routes>
     </BrowserRouter>
   );

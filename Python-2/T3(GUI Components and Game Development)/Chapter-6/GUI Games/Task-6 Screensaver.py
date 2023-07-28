@@ -1,20 +1,28 @@
 import SimpleGUICS2Pygame.simpleguics2pygame as Simplegui
-y=0
-flag=0
-message='Welcome'
+import random
+message="ScreenSaver"
+x=250
+y=250
+reached=False
+x=random.randrange(0,400)
+y=random.randrange(0,400)
+currx=0
+curry=0
 def timerHandler():
-    global y,flag
-    if flag==1:
-        y-=10
-        if y==10:
-            flag=0
+    global x,y,reached,currx,curry
+    if curry<y:
+        curry+=10
     else:
-        y+=10
-        if y==490:
-            y=500
-            flag=1
+        curry-=10
+    if currx<x:
+        currx+=10
+    else:
+        currx-=10
+    if currx==x or curry==y:
+        x=random.randrange(0,400)
+        y=random.randrange(0,400)    
 def draw(canvas):
-    canvas.draw_text(message,[100,y],20,'red')
+    canvas.draw_text(message,[currx,curry],20,'red')
 frame=Simplegui.create_frame("Task-4",500,500)
 timer=Simplegui.create_timer(100,timerHandler)
 frame.set_draw_handler(draw)
