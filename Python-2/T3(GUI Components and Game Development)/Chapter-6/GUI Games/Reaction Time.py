@@ -12,15 +12,14 @@ def start():
     global flag,time
     if flag==1:
         timer.stop()
+        flag=2
+    elif flag==2:
+        time=0
         flag=0
     else:
         timer.start()
         flag=1
-def restart():
-    global time
-    time=0
 timer=Simplegui.create_timer(1,timerHandler)
 frame.set_draw_handler(draw)
 frame.add_button('Start',start)
-frame.add_button('Restart',restart)
 frame.start()
