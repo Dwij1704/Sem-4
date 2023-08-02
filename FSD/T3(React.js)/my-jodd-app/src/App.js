@@ -63,6 +63,7 @@ function MainContent() {
             <a className="btn btn-primary" href="lecture6/Task11">Use Effect</a>
             <h2 className="heading">Lecture 8</h2>
             <a className="btn btn-primary" href="lecture8/ReactForm">React Form</a>
+            <a className="btn btn-primary" href="lecture8/Task12">Task 12</a>
           </div>
         </div>
       </div>
@@ -460,6 +461,29 @@ function Lecture8ReactForm(){
     </>
   )
 }
+function Lecture8Task12(){
+  // Create a react form to select any type of Pizza size using radio
+  const [Pizza, setPizza] = useState("Nothing")
+  return(
+    <>
+    <form>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" onChange={(e)=>setPizza(e.target.value)} type="radio" name="pizza" id="Margherita" value="Margherita"></input>
+        <label class="form-check-label" for="Margherita">Margherita</label>
+        </div>
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" onChange={(e)=>setPizza(e.target.value)} type="radio" name="pizza" id="Thincrust" value="Thin Crust"></input>
+        <label class="form-check-label" for="Thincrust">Thin Crust</label>
+        </div>
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" onChange={(e)=>setPizza(e.target.value)} type="radio" name="pizza" id="Cheesy7" value="Cheesy-7"></input>
+        <label class="form-check-label" for="Cheesy7">Cheesy-7</label>
+        </div>
+    </form>
+    <p>You Selected {Pizza}</p>
+    </>
+  )
+}
 function App() {
   return (
     <BrowserRouter>
@@ -493,6 +517,7 @@ function App() {
         <Route path="/lecture6/Task10" element={<Lecture6Task10 />} />
         <Route path="/lecture6/Task11" element={<Lecture6Task11 />} />
         <Route path="/lecture8/ReactForm" element={<Lecture8ReactForm />} />
+        <Route path="/lecture8/Task12" element={<Lecture8Task12 />} />
       </Routes>
     </BrowserRouter>
   );
