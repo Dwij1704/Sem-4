@@ -56,11 +56,13 @@ function MainContent() {
             <a className="btn btn-primary" href="lecture5/Task6">Task 6</a>
             <a className="btn btn-primary" href="lecture5/Task7">Task 7</a>
             <a className="btn btn-primary" href="lecture5/Task8">Task 8</a>
-            <h2 className="heading">Lecture 5</h2>
+            <h2 className="heading">Lecture 6</h2>
             <a className="btn btn-primary" href="lecture6/Reducer">Reducer</a>
             <a className="btn btn-primary" href="lecture6/Task9">Task 9</a>
             <a className="btn btn-primary" href="lecture6/Task10">Task 10</a>
             <a className="btn btn-primary" href="lecture6/Task11">Use Effect</a>
+            <h2 className="heading">Lecture 8</h2>
+            <a className="btn btn-primary" href="lecture8/ReactForm">React Form</a>
           </div>
         </div>
       </div>
@@ -435,6 +437,29 @@ function Lecture6Task11(){
     </>
   )
 }
+
+function Lecture8ReactForm(){
+  const [name,setName]=useState("")
+  const [text,setTextArea]=useState("")
+  return(
+    <>
+    <div class="container">
+      <form onSubmit={(e)=>{
+        e.preventDefault();
+        alert(`Welcome ${name}, text is ${text}`)
+      }}>
+      <div class="mb-3">
+        <label for="TextArea" class="form-label">Text Area</label>
+        <textarea class="form-control" name="TextArea" onChange={(e)=>{setTextArea(e.target.value)}}></textarea>
+      </div>
+      <label for="" class="form-label">Name</label>
+      <input type="text" class="form-control" value={name} onChange={(e)=>{setName(e.target.value)}} placeholder="Enter Name"></input>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    </>
+  )
+}
 function App() {
   return (
     <BrowserRouter>
@@ -467,6 +492,7 @@ function App() {
         <Route path="/lecture6/Task9" element={<Lecture6Task9 />} />
         <Route path="/lecture6/Task10" element={<Lecture6Task10 />} />
         <Route path="/lecture6/Task11" element={<Lecture6Task11 />} />
+        <Route path="/lecture8/ReactForm" element={<Lecture8ReactForm />} />
       </Routes>
     </BrowserRouter>
   );
