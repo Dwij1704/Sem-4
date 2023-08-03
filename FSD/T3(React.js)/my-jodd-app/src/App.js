@@ -64,6 +64,7 @@ function MainContent() {
             <h2 className="heading">Lecture 8</h2>
             <a className="btn btn-primary" href="lecture8/ReactForm">React Form</a>
             <a className="btn btn-primary" href="lecture8/Task12">Task 12</a>
+            <a className="btn btn-primary" href="lecture8/Task13">Task 13</a>
           </div>
         </div>
       </div>
@@ -484,6 +485,43 @@ function Lecture8Task12(){
     </>
   )
 }
+function Lecture8Task13(){
+  // Create a react form for username, age, email, pass, confirm pass(Functional), alert them
+  const [user, setUser] = useState("")
+  const [age, setAge] = useState("")
+  const [email, setEmail] = useState("")
+  const [pass, setPass] = useState("")
+  const [cpass, setCPass] = useState("")
+  let passpat=/^[A-Z].*$/;
+  return(
+    <>
+    <form onSubmit={(e)=>{e.preventDefault();
+      pass==cpass?(passpat.test(pass)?alert(user+" "+age+" "+email):alert("Enter a valid password")):alert("Password doesn't match")}}>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" onChange={(e)=>{setUser(e.target.value)}} class="form-control" name="username" id="username" aria-describedby="helpId" placeholder="Enter Username"></input>
+      </div>
+      <div class="mb-3">
+        <label for="Email" class="form-label">Email</label>
+        <input type="email" onChange={(e)=>{setEmail(e.target.value)}} class="form-control" name="Email" id="Email" aria-describedby="emailHelpId" placeholder="abc@mail.com"></input>
+      </div>
+      <div class="mb-3">
+        <label for="Age" class="form-label">Age</label>
+        <input type="text" onChange={(e)=>{setAge(e.target.value)}} class="form-control" name="Age" id="Age" aria-describedby="helpId" placeholder="Enter Your Age"></input>
+      </div>
+      <div class="mb-3">
+        <label for="Password" class="form-label">Password</label>
+        <input type="password" onChange={(e)=>{setPass(e.target.value)}} class="form-control" name="Password" id="Password" placeholder="Enter Password"></input>
+      </div>
+      <div class="mb-3">
+        <label for="CPassword" class="form-label">Confirm Password</label>
+        <input type="password" onChange={(e)=>{setCPass(e.target.value)}} class="form-control" name="CPassword" id="CPassword" placeholder="Confirm Password"></input>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </>
+  )
+}
 function App() {
   return (
     <BrowserRouter>
@@ -518,6 +556,7 @@ function App() {
         <Route path="/lecture6/Task11" element={<Lecture6Task11 />} />
         <Route path="/lecture8/ReactForm" element={<Lecture8ReactForm />} />
         <Route path="/lecture8/Task12" element={<Lecture8Task12 />} />
+        <Route path="/lecture8/Task13" element={<Lecture8Task13 />} />
       </Routes>
     </BrowserRouter>
   );
