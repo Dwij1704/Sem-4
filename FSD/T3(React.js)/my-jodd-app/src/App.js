@@ -13,8 +13,9 @@ import Newspaper from './NavBar Files/Newspaper';
 import SpaceManager from './NavBar Files/Space Manager';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
-import {useReducer} from 'react'
-import {useEffect} from 'react'
+import {useReducer} from 'react';
+import {useEffect} from 'react';
+import axios from 'axios'
 // BrowserRouter: It is used to keep your UI in synchrounous with the URL it is the parent
 // component that is used to store all other Router Components.
 
@@ -65,6 +66,11 @@ function MainContent() {
             <a className="btn btn-primary" href="lecture8/ReactForm">React Form</a>
             <a className="btn btn-primary" href="lecture8/Task12">Task 12</a>
             <a className="btn btn-primary" href="lecture8/Task13">Task 13</a>
+            <h2 className="heading">Lecture 9</h2>
+            <a className="btn btn-primary" href="lecture9/Axios">Axios</a>
+            <a className="btn btn-primary" href="lecture9/Task14">Task 14</a>
+            <a className="btn btn-primary" href="lecture9/Task15">Task 15</a>
+            <a className="btn btn-primary" href="lecture9/Task16">Task 16</a>
           </div>
         </div>
       </div>
@@ -522,6 +528,88 @@ function Lecture8Task13(){
     </>
   )
 }
+function Lecture9Axios(){
+  // Axios: It is a library which is used to make request to an API
+  //        Return Data from the API and then do things with that data in a 
+  //        react Application, it is very popular HTTP client which allows us
+  //        to make HTTP requests from the browser.
+  //        useEffect is used to make it working
+  const [joke, setJoke] = useState("")
+  return(
+    <center>
+      <button onClick={()=>{
+        axios.get("https://official-joke-api.appspot.com/random_joke").then((response)=>{
+          const res=response.data
+          setJoke(`${res.setup} ${res.punchline}`)
+          alert(joke)
+        }).catch((error)=>console.error(error))
+      }}>Joke</button>
+    </center>
+  )
+}
+function Lecture9Task14(){
+  const [image, setImage] = useState("")
+  return(
+    <center>
+      <img src={image} height={'250px'} width={'250px'}></img> <br></br>
+      <button onClick={()=>{
+        axios.get("https://dog.ceo/api/breeds/image/random").then((response)=>{
+          const res=response.data
+          setImage(`${res.message}`)
+        }).catch((error)=>console.error(error))
+      }}>Generate Image</button>
+    </center>
+  )
+}
+function Lecture9Task15(){
+  const [image, setImage] = useState("")
+  useEffect(() => {
+    axios.get("https://dog.ceo/api/breeds/image/random").then((response)=>{
+          const res=response.data
+          setImage(res.message)
+        }).catch((error)=>console.error(error))
+  })
+  
+  return(
+    <center>
+      <img src={image} height={'250px'} width={'250px'}></img>
+    </center>
+  )
+}
+function Lecture9Task16(){
+  const [allTask,setTasks]=useState([])
+  const [task, setTask] = useState('')
+  function deleteTask(values){
+    setTasks(
+        allTask.filter((task)=>{
+            if (task!== values){
+                return true;
+            }
+            else{
+                return false;
+            }
+        })
+    )    
+}
+  return(
+    <>
+    <form onSubmit={(e)=>{
+      e.preventDefault()
+      setTasks([...allTask,task])}}>
+    <input type="text" onChange={(e)=>setTask(e.target.value)}></input>
+    <input type="submit" value='submit'></input>
+    {allTask.map((values)=>{
+      return (
+      <>
+      <h2>{values}</h2>
+      <button onClick={deleteTask(values)}>{values}</button>
+      </>
+    )})}
+    </form>
+    </>
+  )
+}
+// To-Do List
 function App() {
   return (
     <BrowserRouter>
@@ -557,6 +645,10 @@ function App() {
         <Route path="/lecture8/ReactForm" element={<Lecture8ReactForm />} />
         <Route path="/lecture8/Task12" element={<Lecture8Task12 />} />
         <Route path="/lecture8/Task13" element={<Lecture8Task13 />} />
+        <Route path="/lecture9/Axios" element={<Lecture9Axios />} />
+        <Route path="/lecture9/Task14" element={<Lecture9Task14 />} />
+        <Route path="/lecture9/Task15" element={<Lecture9Task15 />} />
+        <Route path="/lecture9/Task16" element={<Lecture9Task16 />} />
       </Routes>
     </BrowserRouter>
   );
