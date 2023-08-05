@@ -11,6 +11,9 @@ def new_game():
     random.shuffle(deck)
     exposed = [False]*16
 
+sound1=simplegui._load_local_sound('Card Flip.wav')
+sound=simplegui._load_local_sound('Clap.wav')
+    
 # define event handlers
 def mouseclick(pos):
     # add game state logic here
@@ -20,6 +23,7 @@ def mouseclick(pos):
         if state == 0: 							#just started
             cIndex1 = cardIndex
             exposed[cardIndex] = True
+            sound1.play()
             state = 1
         elif state == 1: 										#one card flipped
             cIndex2 = cardIndex
@@ -35,17 +39,20 @@ def mouseclick(pos):
                 cIndex1, cIndex2 = -1, -1
             cIndex1 = cardIndex
             exposed[cardIndex] = True
+            sound1.play()
             state = 1
 
 # cards are logically 50x100 pixels in size
 def draw(canvas):
     for i in range(16):
         if exposed[i]:
-            canvas.draw_polygon([[i*50, 0], [(i+1)*50, 0], [(i+1)*50, 100], [i*50, 100]], 3, "Red", "White")
+            canvas.draw_polygon([[i*50, 0], [(i+1)*50, 0], [(i+1)*50, 100], [i*50, 100]], 3, "black", "White")
             canvas.draw_text(str(deck[i]), (i*50+11, 69), 55, "Black")
         else:
-            canvas.draw_polygon([[i*50, 0], [(i+1)*50, 0], [(i+1)*50, 100], [i*50, 100]], 3, "Red", "Green")
+            canvas.draw_polygon([[i*50, 0], [(i+1)*50, 0], [(i+1)*50, 100], [i*50, 100]], 3, "black", "orange")
     label.set_text("Turns = " + str(nMoves))
+    if (nScore==8):
+        sound.play()
 
 
 # create frame and add a button and labels
