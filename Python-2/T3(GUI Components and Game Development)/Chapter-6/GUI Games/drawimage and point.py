@@ -7,5 +7,5 @@ def draw(canvas):
     # Local Image:-
     # localImage=Simplegui._load_local_image('Wallpaper.png')
     # canvas.draw_image(localImage,(localImage.get_width()/2,localImage.get_height()/2),(localImage.get_width(),localImage.get_height()),(250,250),(500,500)) # image, center_source, width_height_source, center_dest, width_height_dest
-frame.set_draw_handler(draw)
+frame.set_draw_handler (draw)
 frame.start()

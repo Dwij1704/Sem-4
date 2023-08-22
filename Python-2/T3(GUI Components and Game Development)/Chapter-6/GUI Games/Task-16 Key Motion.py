@@ -11,9 +11,13 @@ def draw(canvas):
 
     # Reverse direction if ball hits the border
     if ball_pos[0] <= radius or ball_pos[0] >= width - radius:
-        vel[0] = -vel[0]
+        print(vel)
+        vel[0] =    -vel[0]
+        print(vel)
     if ball_pos[1] <= radius or ball_pos[1] >= height - radius:
+        print(vel)
         vel[1] = -vel[1]
+        print(vel)
 
     # Update ball position
     ball_pos[0] += vel[0]

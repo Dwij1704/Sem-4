@@ -1,5 +1,5 @@
 import React from "react";
-const Example4 = (props)=>{
+export default function Example4(props){
     return(
         <>
         <h1>Props Example</h1>
@@ -13,5 +13,4 @@ const Example4 = (props)=>{
         </ul>    
         </>
     )
-}
-export default Example4;
+}   ;
