@@ -1,0 +1,32 @@
+    {% extends 'main.html' %}
+    {% block content %}
+    <h2 class="display-3">Home</h2>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>Data1</th>
+                <th>Data2</th>
+                <th>Data3</th>
+               </tr>
+             {% for room in rooms %}
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>{{room.id}}</td>
+                    <td>{{room.name}}</td>
+                </tr>
+            </tbody>
+            {% endfor%} 
+    </table>
+    <form method="get" action="">
+        <input class="form-control" type="text" name="searchMovie"/>
+        <button type="submit" class="btn btn-primary">Search</button>   
+    </form>
+    <p>Searching For {{searchTerm}}</p>
+    {% for movie in movie %}
+    {% if searchTerm==movie.title %}
+    <h3>{{movie.descp}}</h3>
+    {% endif %}
+    {% endfor%} 
+    {% endblock %}

@@ -534,18 +534,57 @@ function Lecture9Axios(){
   //        react Application, it is very popular HTTP client which allows us
   //        to make HTTP requests from the browser.
   //        useEffect is used to make it working
-  const [joke, setJoke] = useState("")
-  return(
-    <center>
-      <button onClick={()=>{
-        axios.get("https://official-joke-api.appspot.com/random_joke").then((response)=>{
-          const res=response.data
-          setJoke(`${res.setup} ${res.punchline}`)
-          alert(joke)
-        }).catch((error)=>console.error(error))
-      }}>Joke</button>
-    </center>
-  )
+    const [inputText, setInputText] = useState('');
+  const [responseText, setResponseText] = useState('');
+
+  const handleInputChange = (event) => {
+    setInputText(event.target.value);
+  };
+
+  const fetchChatCompletion = () => {
+    const apiUrl = 'https://api.openai.com/v1/chat/completions';
+    const apiKey = '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'; // Replace with your actual OpenAI API key
+
+    const requestData = {
+      messages: [
+        {
+          role: 'system',
+          content: 'You are a helpful assistant.'
+        },
+        {
+          role: 'user',
+          content: inputText
+        }
+      ]
+    };
+
+    axios.post(apiUrl, requestData, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      }
+    })
+      .then(response => {
+        setResponseText(response.data.choices[0].message.content);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  };
+
+  return (
+    <div>
+      <h1>OpenAI GPT-3 Chat Completion in React</h1>
+      <input
+        type="text"
+        value={inputText}
+        onChange={handleInputChange}
+        placeholder="Enter your message"
+      />
+      <button onClick={fetchChatCompletion}>Get Chat Completion</button>
+      <p><strong>Response:</strong> {responseText}</p>
+    </div>
+  );
 }
 function Lecture9Task14(){
   const [image, setImage] = useState("")

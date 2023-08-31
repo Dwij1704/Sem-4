@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content%}
+    <div class="container" style="padding-top: 2rem; display: flex;align-items: stretch;flex-direction: row;flex-wrap: wrap;justify-content: space-evenly;">
+      {% for new in news%}
+      <div class="card" style="height: auto; width: 18rem; margin-bottom: 5rem ;">
+        <div class="card-body" style="display: flex;flex-wrap: wrap;flex-direction: column;justify-content: flex-start;">
+          <h5 class="card-title">{{ new.headline }}</h5>
+          <p class="card-text">{{ new.descp }}</p>
+          <p class="card-text">{{ new.date }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+{% endblock content%}
