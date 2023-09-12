@@ -122,3 +122,22 @@ db.people.find({ status: { $ne: "PH" } })
 
 (5) select name from people order by age desc
 db.people.find({}, { name: 1, _id: 0 }).sort({ age: -1 })
+
+
+--------------------------------------------------------------------------------------------
+
+
+Q357
+Map following SQL queries to MongoDB query:
+(1) update employee set name="TTT" where age not in {12,33,44,55}
+(2) select count(*) from employee where age<>23
+(3) update employee set age=age+10
+
+(1) update employee set name="TTT" where age not in {12,33,44,55}
+db.employee.updateMany({ age: { $nin: [12, 33, 44, 55] } }, { $set: { name: "TTT" } })
+
+(2) select count(*) from employee where age<>23
+db.employee.find({ age: { $ne: 23 } }).count()
+
+(3) update employee set age=age+10
+db.employee.updateMany({}, { $inc: { age: 10 } })
