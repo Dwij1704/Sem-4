@@ -164,3 +164,57 @@ db.student.updateMany({ age: 20 }, { $set: { name: "JJJ", age: 40 } }, { upsert:
 
 (2) To retrieve age and name fields of documents having names “YYY” & “SSS”. Don’t project _id field.
 db.student.find({ name: { $in: ["YYY", "SSS"] } }, { name: 1, age: 1, _id: 0 })
+
+
+--------------------------------------------------------------------------------------------
+
+
+Q368
+Write a script using frontend technology to have a textfield and a submit button. After clicking
+submit button, insert that value of textfield in database
+
+main.html:-
+<html>
+<head>
+    <h1>Q368</h1>
+</head>
+<body>
+    <form action="/" method="post">
+        Text:<input type="text" name="txt"><br>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+main.js:-
+var express = require("express");
+var bodyparser = require("body-parser");
+var url = bodyparser.urlencoded({ extended: false })
+var alert = require("alert")
+var path = __dirname
+
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://127.0.0.1/LJ').then(() => console.log("connection Done")).catch((err) => console.log(err));
+
+var db = mongoose.connection
+var app = express()
+app.use(express.static(path, { index: 'main.html' }))
+
+try {
+    app.post("/", url, (req, res) => {
+        var txt = req.body.txt
+
+        var data = {
+            "Text": txt
+        }
+        db.collection('qb').insertOne({"Text": txt}, (err, collection)=> {
+            if (err) throw err;
+        });
+        return res.redirect('main.html');
+    })
+} catch (err) {
+    console.error(`Error in server ${err}`)
+}
+app.listen(3000, () => {
+    console.log("3000")
+})
