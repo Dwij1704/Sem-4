@@ -95,3 +95,9 @@ use("LJ")
 
 // (3) List all employees whose age lies between 25 to 50 years excluding all rest of the fields
 // db.employee.find({ "age": { $gte: 25, $lte: 50 } }, { name: 1, age: 1, joiningDate: 1, _id: 0 })
+
+
+// --------------------------------------------------------------------------------------------
+
+
+// Q355
