@@ -100,4 +100,25 @@ db.employee.find({ "age": { $gte: 25, $lte: 50 } }, { name: 1, age: 1, joiningDa
 --------------------------------------------------------------------------------------------
 
 
-// Q355
+Q356
+Map following SQL queries to MongoDB query:
+(1) alter table people add joiningDate datetime
+(2) alter table people drop column joiningDate
+(3) select age,name from people where status="PH"
+(4) select * from people where status!="PH"
+(5) select name from people order by age desc
+
+(1) alter table people add joiningDate datetime
+db.people.updateMany({}, { $set: { joiningDate: "" } })
+
+(2) alter table people drop column joiningDate
+db.people.updateMany({}, { $unset: { joiningDate: "" } })
+
+(3) select age,name from people where status="PH"
+db.people.find({ status: "PH" }, { age: 1, name: 1, _id: 0 })
+
+(4) select * from people where status!="PH"
+db.people.find({ status: { $ne: "PH" } })
+
+(5) select name from people order by age desc
+db.people.find({}, { name: 1, _id: 0 }).sort({ age: -1 })
