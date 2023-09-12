@@ -141,3 +141,26 @@ db.employee.find({ age: { $ne: 23 } }).count()
 
 (3) update employee set age=age+10
 db.employee.updateMany({}, { $inc: { age: 10 } })
+
+
+--------------------------------------------------------------------------------------------
+
+
+Q367
+Consider following student collection:
+[
+ {_id:123433,name: "SSS",age:22},
+ {_id:123434,name: "YYY",age:2},
+ {_id:123435,name: "PPP",age:32},
+]
+Do as directed:
+(1) Update name=”JJJ” and age=40, where age=20 occurs. Insert new document, if record is
+not found.
+(2) To retrieve age and name fields of documents having names “YYY” & “SSS”. Don’t
+project _id field.
+
+(1) Update name=”JJJ” and age=40, where age=20 occurs. Insert new document, if record is not found.
+db.student.updateMany({ age: 20 }, { $set: { name: "JJJ", age: 40 } }, { upsert: true })
+
+(2) To retrieve age and name fields of documents having names “YYY” & “SSS”. Don’t project _id field.
+db.student.find({ name: { $in: ["YYY", "SSS"] } }, { name: 1, age: 1, _id: 0 })
