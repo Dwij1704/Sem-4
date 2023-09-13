@@ -392,7 +392,6 @@ try {
             alert("Record inserted Successfully");
         });
 
-        // return res.redirect('index.html');
     })
 } catch (err) {
     console.error(`Error in server ${err}`)
@@ -400,3 +399,37 @@ try {
 app.listen(3000, () => {
     console.log("3000")
 })
+
+
+
+--------------------------------------------------------------------------------------------
+
+
+
+Q390
+Consider a collection student having documents like this:
+[
+ {_id:123433,name: "DDD",age:32},
+ {_id:123434,name: "BBB",age:20},
+ {_id:123435,name: "AAA",age:10},
+]
+Do as directed:
+(1) Create an index & fire a command to retrieve a document having age>15 and name is
+"BBB". Stats must return values nReturned=1, docExamined=1, stage="IXSCAN". Perform
+required indexing.
+(2) Create an index on subset of a collection having age>30. Also write a command to get a
+stats "IXSCAN" for age>30.
+
+(1) Create an index & fire a command to retrieve a document having age>15 and name is "BBB". Stats must return values nReturned=1, docExamined=1, stage="IXSCAN". Perform required indexing.
+Create an index on the 'age' and 'name' fields
+db.student.createIndex({ age: 1, name: 1 })
+
+Retrieve a document with age > 15 and name is "BBB"
+db.student.find({ age: { $gt: 15 }, name: "BBB" }).explain("executionStats")
+
+(2) Create an index on subset of a collection having age>30. Also write a command to get a stats "IXSCAN" for age>30.
+Create an index on the 'age' field for documents with age > 30
+db.student.createIndex({ age: 1 }, { partialFilterExpression: { age: { $gt: 30 } } })
+
+Retrieve statistics for the index scan
+db.student.find({ age: { $gt: 30 } }).explain("executionStats")
