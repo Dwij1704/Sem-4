@@ -190,23 +190,15 @@ main.js:-
 var express = require("express");
 var bodyparser = require("body-parser");
 var url = bodyparser.urlencoded({ extended: false })
-var alert = require("alert")
-var path = __dirname
-
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1/LJ').then(() => console.log("connection Done")).catch((err) => console.log(err));
-
 var db = mongoose.connection
 var app = express()
-app.use(express.static(path, { index: 'main.html' }))
+app.use(express.static(__dirname, { index: 'main.html' }))
 
 try {
     app.post("/", url, (req, res) => {
         var txt = req.body.txt
-
-        var data = {
-            "Text": txt
-        }
         db.collection('qb').insertOne({"Text": txt}, (err, collection)=> {
             if (err) throw err;
         });
@@ -218,3 +210,135 @@ try {
 app.listen(3000, () => {
     console.log("3000")
 })
+
+
+--------------------------------------------------------------------------------------------
+
+
+
+Q369
+Write a node.js script to define a schema having fields like name,age,gender,email.
+Apply following validations:
+(1) name field must remove leading/trailing spaces,minimum and maximum length should be 3
+& 10 respectively
+(2) age must accept a value from 1<=age<=100 only.
+(3) Perform Email ID validation on Email field.
+(4) gender must accept values in small letters only and allowed values are “male” & “female”
+only
+
+const mg=require("mongoose")
+const v= require('validator')
+
+const { default: validator } = require("validator")
+mg
+.connect('mongodb://localhost:27017/test')
+.then(()=>{console.log("db.connected")})
+.catch(()=>{console.log("error")})
+
+const register= new mg.Schema({
+    name:{
+        type:String,
+        trim:true,
+        minlength:3,
+        maxlength:10,
+    },
+    age:{
+        type:Number,
+        validate(v){if (v<=0 || v>100) {throw new Error('age must be between 1-100')}}
+    },
+    email :{
+        type: String ,
+        validate:[validator.isEmail(),'invalid Email'],
+        unique: true
+    },
+    gender:{
+        type:String,
+        enum:['male','female'],
+        lowercase:true,
+    }
+    }
+)
+const xyz = mg.model("369",register)
+const save= async()=>{
+    await xyz.insertMany([{
+        name:'divyam',
+        age:19,
+        email:"divyamj212@gmail.com",
+        gender:"male"
+    },
+    
+]).then(()=>{
+    console.log("data inserted")
+})
+.catch(()=>{
+    console.log("error")
+})
+}
+save()
+app.listen(8000)
+
+
+
+--------------------------------------------------------------------------------------------
+
+
+
+Q373
+Consider following student collection:
+[
+ {_id:123433,name: "2DD", surname:"GGG", age:22},
+ {_id:123434,name: "LLL", surname:"RRR", age:2},
+ {_id:123435,name: "KKK", surname:"III", age:32}
+ {_id:123436,name: "ZZZ", surname:"TTTT", age:9}
+]
+Do as directed:
+
+(1) List all students whose name starts by digit only.
+db.students.find({ name: /^\d/ })
+
+(2) List all students whose surname has exactly 4 letters only.
+db.students.find({surname:/^[A-Za-z]{4}$/})
+
+(3) List only names of students from youngest to oldest.
+db.students.find().sort({age:1}).project({_id:0,name:1})
+
+(4) List all students whose name has 3-10 letters only. Don't allow digits & underscore.
+db.students.find({name:/^[A-Za-z]{3,10}$/})
+
+
+
+--------------------------------------------------------------------------------------------
+
+
+
+Q387
+Write a node.js script to update a specific document using an _id field. Display the updated
+result on console.
+const mg=require("mongoose")
+mg.connect("0.0.0.0.27013/temp").then(console.log("db connected")).catch(console.log("error"))
+const user=new mg.Schema({name:String,age:Number})
+const user_1=new mg.model("Temp",user)
+const Update=async()=>{
+    await user_1.updateMany({age:{$eq:20}},{$set:{name:"JJJ",age:40}},{upsert:true}).then(console.log("updated"))
+}
+Update()
+const Find=async()=>{
+    await user_1.find({$and:[{name:"YYY"},{name:"SSS"}]},{_id:0})
+}
+
+
+
+--------------------------------------------------------------------------------------------
+
+
+
+Q388
+Write a node.js script to update a specific document using an _id field. Display the updated
+result on console.
+
+const Delete=async()=>{
+    await user_1.deleteMany({}).then(console.log("deleted"))
+}
+const Find=async()=>{
+    await user_1.find({},{_id:0})
+}
