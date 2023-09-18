@@ -1,0 +1,22 @@
+{% extends 'navbar.html' %}
+{% block content%}
+<h1>News</h1>
+<table border="all">
+    <tr>
+        <th>News</th>
+    </tr>
+    <tr>
+        <td>{{ data.id }}</td>
+        <td>{{ data.title }}</td>
+        <td>{{ data.content }}</td>
+        <td><a href="/delete/{{ data.id }}/">Delete</a></td>
+    </tr>
+</table>
+<form method="post">
+    <h3>Update Title</h3> <br>
+    <input type="text" name="ID" placeholder="Enter ID">
+    <input type="text" name="Title" placeholder="Enter your title">
+    <input type="submit" value="Submit">
+    </form>
+<form>
+{% endblock %}

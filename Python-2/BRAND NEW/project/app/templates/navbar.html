@@ -6,6 +6,13 @@
 <body>
     <li>
         <a href="/home/">Home</a>
+        <a href="/news/">news</a>
+        {% if user.is_authenticated %}
+        <a href="/logout/">Logout {{ user.username }}</a>
+        {% else %}
+        <a href="/login/">Login</a>
+        <a href="/signup/">Signup</a>
+        {% endif %}
     </li>
     <div>
         {% block content %}
